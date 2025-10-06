@@ -32,7 +32,7 @@ const Navigation = () => {
       <nav className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
         <a href="#" className="text-2xl font-bold text-primary">
-          Lumina
+          Backero
         </a>
 
         {/* Desktop Navigation */}

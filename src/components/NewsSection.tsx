@@ -6,7 +6,7 @@ const news = [
   {
     category: "Press Release",
     date: "March 2024",
-    title: "Lumina Brands Expands Portfolio with Acquisition of Eco-Luxury Brand",
+    title: "Backero Expands Portfolio with Acquisition of Eco-Luxury Brand",
     excerpt: "Strategic move strengthens position in sustainable beauty segment and enhances omni-channel presence.",
     image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=800&h=600&fit=crop"
   },

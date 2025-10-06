@@ -22,7 +22,7 @@ const ContactSection = () => {
             Join Our Journey
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Stay connected with Lumina Brands. Subscribe to receive updates on new product launches, 
+            Stay connected with Backero. Subscribe to receive updates on new product launches, 
             sustainability initiatives, and exclusive insights from our team.
           </p>
 
