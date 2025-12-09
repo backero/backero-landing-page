@@ -2,29 +2,34 @@ import storyBg from "@/assets/story-bg.jpg";
 
 const milestones = [
   {
-    year: "2018",
-    title: "The Beginning",
-    description: "Founded with a vision to disrupt the beauty industry with clean, sustainable products."
-  },
-  {
-    year: "2019",
-    title: "First Brand Launch",
-    description: "Launched Pureté, our flagship skincare line, gaining instant traction."
-  },
-  {
     year: "2020",
-    title: "Expansion",
-    description: "Grew to 3 brands and achieved nationwide distribution."
+    title: "The Beginning",
+    description: "Backero Private Limited was established with a vision to revolutionize the IT services sector in India."
+  },
+  {
+    year: "2021",
+    title: "First Product Launch",
+    description: "Launched our first product line, marking a significant step in the company's growth trajectory."
   },
   {
     year: "2022",
-    title: "Sustainability Milestone",
-    description: "Achieved carbon neutrality across all operations and packaging."
+    title: "Global Expansion",
+    description: "Expanded operations to include international markets, enhancing our global presence."
+  },
+  {
+    year: "2023",
+    title: "Rapid Growth",
+    description: "Opened a branch in Coimbatore, built a digital marketing team, and expanded operations pan-India including remote areas. Achieved strong sales and received positive customer feedback for cancer-free cosmetics."
   },
   {
     year: "2024",
-    title: "Portfolio Growth",
-    description: "Now managing 6 distinctive brands serving millions of consumers."
+    title: "AI Innovation",
+    description: "Introduced a new suite of AI-driven solutions, positioning Backero as a leader in technological innovation. Planned offline retail expansion and implemented enhanced customer trust policies."
+  },
+  {
+    year: "2025",
+    title: "5th Anniversary",
+    description: "Celebrated half a decade of excellence and growth. Launched in-house R&D, production, and manufacturing facilities to strengthen product quality and innovation."
   }
 ];
 
@@ -38,10 +43,10 @@ const StorySection = () => {
 
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-primary mb-4">Our Journey</h2>
+          <h2 className="text-primary mb-4">Key Milestones & Achievements</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From a passionate idea to a portfolio of beloved brands, our story is one of 
-            innovation, resilience, and unwavering commitment to our values.
+            From a passionate startup to a technology-driven company blending innovation, 
+            wellness, and sustainability—our journey continues to inspire.
           </p>
         </div>
 

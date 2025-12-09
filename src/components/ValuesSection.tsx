@@ -1,26 +1,31 @@
-import { Heart, Lightbulb, Shield, Target } from "lucide-react";
+import { Laptop, ShoppingCart, FlaskConical, Rocket, Truck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const values = [
   {
-    icon: Heart,
-    title: "Consumer First",
-    description: "Every decision starts and ends with our consumers. We listen, learn, and evolve based on real needs and feedback."
+    icon: Laptop,
+    title: "Technology & Digital Services",
+    description: "Leading innovation in IT services with AI-driven solutions and digital transformation."
   },
   {
-    icon: Lightbulb,
-    title: "Innovation & R&D",
-    description: "Continuous research and development ensures our products leverage the latest scientific breakthroughs and natural discoveries."
+    icon: ShoppingCart,
+    title: "Marketplace Operations",
+    description: "Expert presence across Amazon, Flipkart, JioMart, and other major e-commerce platforms."
   },
   {
-    icon: Target,
-    title: "Data-Driven",
-    description: "Technology and analytics power our understanding of trends, preferences, and opportunities to serve better."
+    icon: FlaskConical,
+    title: "Cosmetic Research & Manufacturing",
+    description: "In-house R&D facilities ensuring cancer-free, research-backed beauty products."
   },
   {
-    icon: Shield,
-    title: "Sustainability",
-    description: "Responsible sourcing, eco-friendly packaging, and carbon-neutral operations define our commitment to the planet."
+    icon: Rocket,
+    title: "Brand Development",
+    description: "Building purpose-driven brands with strong e-commerce integration and market presence."
+  },
+  {
+    icon: Truck,
+    title: "Quick Commerce & Omnichannel",
+    description: "Pan-India distribution including remote areas through omnichannel retail strategy."
   }
 ];
 
@@ -29,14 +34,14 @@ const ValuesSection = () => {
     <section id="values" className="section-padding bg-muted">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-primary mb-4">Our DNA</h2>
+          <h2 className="text-primary mb-4">Our Focus Areas</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The core principles that guide everything we do, from product development 
-            to customer service.
+            Under visionary leadership, Backero continues to evolve as a multidisciplinary 
+            company blending technology, wellness, and sustainability.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <Card
               key={index}
