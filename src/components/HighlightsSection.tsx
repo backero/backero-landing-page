@@ -1,29 +1,29 @@
-import { Sparkles, MapPin, Leaf, Users } from "lucide-react";
+import { Sparkles, MapPin, Calendar, Users } from "lucide-react";
 
 const highlights = [
   {
     icon: Sparkles,
-    number: "6+",
-    label: "Unique Brands",
-    description: "Across beauty & personal care"
+    number: "2",
+    label: "Premium Brands",
+    description: "Treyfa & Kymarie"
   },
   {
     icon: MapPin,
-    number: "700+",
-    label: "Districts",
-    description: "Omni-channel presence"
+    number: "Pan-India",
+    label: "Coverage",
+    description: "Including remote areas"
   },
   {
-    icon: Leaf,
-    number: "100%",
-    label: "Sustainable",
-    description: "Commitment to planet"
+    icon: Calendar,
+    number: "2020",
+    label: "Founded",
+    description: "5+ years of excellence"
   },
   {
     icon: Users,
-    number: "10M+",
-    label: "Happy Customers",
-    description: "Trust our brands"
+    number: "100%",
+    label: "Cancer-Free",
+    description: "Certified cosmetics"
   }
 ];
 
