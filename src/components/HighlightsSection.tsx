@@ -1,4 +1,4 @@
-import { Sparkles, MapPin, Calendar, Users } from "lucide-react";
+import { Sparkles, MapPin, Package, ShoppingBag } from "lucide-react";
 
 const highlights = [
   {
@@ -8,19 +8,19 @@ const highlights = [
     description: "Treyfa & Kymarie"
   },
   {
+    icon: Package,
+    number: "B2B & B2C",
+    label: "Distribution",
+    description: "Production to Export"
+  },
+  {
     icon: MapPin,
     number: "Pan-India",
     label: "Coverage",
     description: "Including remote areas"
   },
   {
-    icon: Calendar,
-    number: "2020",
-    label: "Founded",
-    description: "5+ years of excellence"
-  },
-  {
-    icon: Users,
+    icon: ShoppingBag,
     number: "100%",
     label: "Cancer-Free",
     description: "Certified cosmetics"

@@ -4,32 +4,32 @@ const milestones = [
   {
     year: "2020",
     title: "The Beginning",
-    description: "Backero Private Limited was established with a vision to revolutionize the IT services sector in India."
+    description: "Backero Private Limited was established with a vision to revolutionize the cosmetics industry with cancer-free products."
   },
   {
     year: "2021",
     title: "First Product Launch",
-    description: "Launched our first product line, marking a significant step in the company's growth trajectory."
+    description: "Launched Treyfa, our flagship cancer-free cosmetics brand, marking a significant milestone in clean beauty."
   },
   {
     year: "2022",
-    title: "Global Expansion",
-    description: "Expanded operations to include international markets, enhancing our global presence."
+    title: "B2B Expansion",
+    description: "Expanded operations to include B2B distribution, enabling retailers and businesses to offer cancer-free cosmetics."
   },
   {
     year: "2023",
-    title: "Rapid Growth",
-    description: "Opened a branch in Coimbatore, built a digital marketing team, and expanded operations pan-India including remote areas. Achieved strong sales and received positive customer feedback for cancer-free cosmetics."
+    title: "Pan-India Growth",
+    description: "Opened a branch in Coimbatore, expanded distribution pan-India including remote areas, and received overwhelming positive feedback for our cancer-free cosmetics."
   },
   {
     year: "2024",
-    title: "AI Innovation",
-    description: "Introduced a new suite of AI-driven solutions, positioning Backero as a leader in technological innovation. Planned offline retail expansion and implemented enhanced customer trust policies."
+    title: "Kymarie Launch",
+    description: "Launched Kymarie, our color cosmetics and specialty division. Implemented enhanced quality control and customer trust policies."
   },
   {
     year: "2025",
-    title: "5th Anniversary",
-    description: "Celebrated half a decade of excellence and growth. Launched in-house R&D, production, and manufacturing facilities to strengthen product quality and innovation."
+    title: "In-House Manufacturing",
+    description: "Celebrated 5 years of excellence. Launched in-house R&D, production, and manufacturing facilities. Expanded export capabilities for global reach."
   }
 ];
 
@@ -45,8 +45,8 @@ const StorySection = () => {
         <div className="text-center mb-16">
           <h2 className="text-primary mb-4">Key Milestones & Achievements</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From a passionate startup to a technology-driven company blending innovation, 
-            wellness, and sustainability—our journey continues to inspire.
+            From a passionate startup to a complete cosmetics solution provider—our journey 
+            in clean beauty continues to inspire and transform the industry.
           </p>
         </div>
 

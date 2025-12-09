@@ -1,10 +1,11 @@
 import { Card } from "@/components/ui/card";
-import { Leaf, Sparkles } from "lucide-react";
+import treyfaLogo from "@/assets/treyfa-logo.png";
+import kymarieLogo from "@/assets/kymarie-logo.png";
 
 const brands = [
   {
     name: "Treyfa",
-    icon: Leaf,
+    logo: treyfaLogo,
     tagline: "Everyday Wellness & Ayurvedic Heritage",
     description: "A holistic range of daily wellness products blending modern science with traditional Ayurvedic knowledge for skin, hair, and body care.",
     color: "from-accent/20 to-accent/5",
@@ -16,7 +17,7 @@ const brands = [
   },
   {
     name: "Kymarie",
-    icon: Sparkles,
+    logo: kymarieLogo,
     tagline: "Color & Specialty Division",
     description: "Specialized division dedicated to expanding the cancer-free promise into color cosmetics and specialized personal care, ensuring beauty doesn't compromise health.",
     color: "from-primary/20 to-primary/5",
@@ -50,19 +51,18 @@ const BrandsSection = () => {
             >
               <div className={`h-2 bg-gradient-to-r ${brand.color}`} />
               <div className="p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <brand.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {brand.name}
-                    </h3>
-                    <p className="text-sm font-medium text-accent">
-                      {brand.tagline}
-                    </p>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-16 flex items-center">
+                    <img 
+                      src={brand.logo} 
+                      alt={`${brand.name} logo`}
+                      className="h-full w-auto object-contain max-w-[160px]"
+                    />
                   </div>
                 </div>
+                <p className="text-sm font-medium text-accent mb-4">
+                  {brand.tagline}
+                </p>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   {brand.description}

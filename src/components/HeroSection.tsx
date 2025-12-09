@@ -18,12 +18,12 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container-custom text-center fade-in">
         <h1 className="mb-6 text-foreground">
-          Information Technology Services <br />
-          <span className="text-primary">& Cancer-Free Cosmetics</span>
+          Complete Cosmetics Solution <br />
+          <span className="text-primary">From Production to Export</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-          India's first certified cancer-free cosmetics brand. Pioneering clean beauty through rigorous research, Ayurvedic heritage, and modern science.
+          India's first certified cancer-free cosmetics brand. B2B & B2C solutions delivering premium, research-backed beauty products through Ayurvedic heritage and modern science.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
