@@ -10,75 +10,75 @@ All colors MUST be HSL.
   :root {
     /* Soft, sophisticated neutrals */
     --background: 0 0% 98%;
-    --foreground: 20 6% 18%;
+    --foreground: 215 45% 20%;
 
     /* Clean card surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 20 6% 18%;
+    --card-foreground: 215 45% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 6% 18%;
+    --popover-foreground: 215 45% 20%;
 
-    /* Sage green primary for sustainability */
-    --primary: 150 25% 45%;
+    /* Deep navy blue primary - from Backero logo */
+    --primary: 215 50% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 150 30% 85%;
-    --primary-dark: 150 30% 30%;
+    --primary-light: 215 40% 90%;
+    --primary-dark: 215 55% 15%;
 
-    /* Warm terracotta accent */
-    --accent: 15 65% 60%;
+    /* Fresh green accent - from Backero logo leaves */
+    --accent: 95 55% 47%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 15 70% 90%;
+    --accent-light: 95 60% 92%;
 
     /* Subtle secondary */
-    --secondary: 30 20% 95%;
-    --secondary-foreground: 20 6% 18%;
+    --secondary: 215 20% 96%;
+    --secondary-foreground: 215 45% 20%;
 
     /* Muted backgrounds */
-    --muted: 30 15% 96%;
-    --muted-foreground: 20 5% 45%;
+    --muted: 215 15% 96%;
+    --muted-foreground: 215 10% 45%;
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 10% 88%;
-    --input: 30 10% 90%;
-    --ring: 150 25% 45%;
+    --border: 215 15% 88%;
+    --input: 215 15% 90%;
+    --ring: 215 50% 20%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(150 25% 45% / 0.05), hsl(15 65% 60% / 0.05));
+    --hero-gradient: linear-gradient(135deg, hsl(215 50% 20% / 0.05), hsl(95 55% 47% / 0.05));
     --section-spacing: 6rem;
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 20 6% 12%;
-    --foreground: 30 15% 95%;
+    --background: 215 30% 10%;
+    --foreground: 215 15% 95%;
 
-    --card: 20 6% 15%;
-    --card-foreground: 30 15% 95%;
+    --card: 215 30% 13%;
+    --card-foreground: 215 15% 95%;
 
-    --popover: 20 6% 15%;
-    --popover-foreground: 30 15% 95%;
+    --popover: 215 30% 13%;
+    --popover-foreground: 215 15% 95%;
 
-    --primary: 150 25% 55%;
-    --primary-foreground: 20 6% 12%;
-    --primary-light: 150 25% 25%;
+    --primary: 215 45% 55%;
+    --primary-foreground: 215 30% 10%;
+    --primary-light: 215 40% 25%;
 
-    --accent: 15 65% 65%;
-    --accent-foreground: 20 6% 12%;
+    --accent: 95 55% 55%;
+    --accent-foreground: 215 30% 10%;
 
-    --secondary: 20 6% 18%;
-    --secondary-foreground: 30 15% 95%;
+    --secondary: 215 25% 18%;
+    --secondary-foreground: 215 15% 95%;
 
-    --muted: 20 5% 20%;
-    --muted-foreground: 30 10% 60%;
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 60%;
 
-    --border: 20 5% 25%;
-    --input: 20 5% 25%;
-    --ring: 150 25% 55%;
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 215 45% 55%;
   }
 }
 

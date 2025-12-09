@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import backeroLogo from "@/assets/backero-logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,8 +32,8 @@ const Navigation = () => {
     >
       <nav className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold text-primary">
-          Backero
+        <a href="#" className="flex items-center">
+          <img src={backeroLogo} alt="Backero" className="h-10 md:h-12 w-auto" />
         </a>
 
         {/* Desktop Navigation */}
