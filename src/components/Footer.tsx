@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import backeroLogo from "@/assets/backero-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,7 +23,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-primary mb-4">Backero</h3>
+            <img src={backeroLogo} alt="Backero" className="h-10 w-auto mb-4" />
             <p className="text-muted-foreground mb-6">
               A new generation of clean beauty & care brands, driven by purpose and innovation.
             </p>
