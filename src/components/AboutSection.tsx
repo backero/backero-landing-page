@@ -61,7 +61,7 @@ const AboutSection = () => {
           animationDelay: "0.4s"
         }}>
             <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-accent/20 shadow-xl">
-              <img src={suryarajImage} alt="Suriyaraj - Managing Director" className="w-full h-full object-cover" />
+              <img src={suryarajImage} alt="Suriyaraj - Managing Director" className="w-full h-full object-cover object-center" />
             </div>
             <h4 className="text-xl font-bold text-foreground mb-1">Suryaraj</h4>
             <p className="font-medium mb-3 text-primary">Managing Director</p>
