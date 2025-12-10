@@ -48,7 +48,7 @@ const AboutSection = () => {
           animationDelay: "0.3s"
         }}>
             <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-xl">
-              <img src={parimalaImage} alt="Parimala Gnana Soundari - Founder" className="w-full h-full object-cover" />
+              <img alt="Parimala Gnana Soundari - Founder" className="w-full h-full object-cover" src="/lovable-uploads/66ae5e94-ea52-4f93-98aa-392bec176ec4.jpg" />
             </div>
             <h4 className="text-xl font-bold text-foreground mb-1">Parimala Gnana Soundari</h4>
             <p className="text-primary font-medium mb-3">Founder</p>
@@ -61,7 +61,7 @@ const AboutSection = () => {
           animationDelay: "0.4s"
         }}>
             <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-accent/20 shadow-xl">
-              <img src={suryarajImage} alt="Suriyaraj - Managing Director" className="w-full h-full object-cover object-center" />
+              <img alt="Suriyaraj - Managing Director" className="w-full h-full object-cover object-center" src="/lovable-uploads/d8193cc5-157f-4613-ab3d-522a59cc3194.png" />
             </div>
             <h4 className="text-xl font-bold text-foreground mb-1">Suryaraj</h4>
             <p className="font-medium mb-3 text-primary">Managing Director</p>
