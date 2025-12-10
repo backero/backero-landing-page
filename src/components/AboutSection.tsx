@@ -48,7 +48,7 @@ const AboutSection = () => {
           animationDelay: "0.3s"
         }}>
             <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-xl">
-              <img alt="Parimala Gnana Soundari - Founder" className="w-full h-full object-cover" src="/lovable-uploads/66ae5e94-ea52-4f93-98aa-392bec176ec4.jpg" />
+              <img alt="Parimala Gnana Soundari - Founder" className="w-full h-full object-cover" src="/lovable-uploads/6cafa7dc-35d6-4c57-9a0e-7448a847d602.png" />
             </div>
             <h4 className="text-xl font-bold text-foreground mb-1">Parimala Gnana Soundari</h4>
             <p className="text-primary font-medium mb-3">Founder</p>
