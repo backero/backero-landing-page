@@ -100,10 +100,31 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Company Information */}
+        <div className="pt-8 border-t border-border mb-8">
+          <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wide">Company Information</h4>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">CIN</p>
+              <p className="text-foreground">U72900TZ2020PTC034030</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Incorporation Date</p>
+              <p className="text-foreground">July 7, 2020</p>
+            </div>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Registered Address</p>
+              <p className="text-foreground">
+                No.101/1A4, Kovilyagappanpatti, Thamaraipadi, Dindigul, Tamil Nadu, 624005, India
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Backero. All rights reserved.
+            © {currentYear} Backero Private Limited. All rights reserved.
           </p>
         </div>
       </div>
