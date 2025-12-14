@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { ExternalLink } from "lucide-react";
 import treyfaLogo from "@/assets/treyfa-logo.png";
 import kymarieLogo from "@/assets/kymarie-logo.png";
 
@@ -9,6 +10,7 @@ const brands = [
     tagline: "Everyday Wellness & Ayurvedic Heritage",
     description: "A holistic range of daily wellness products blending modern science with traditional Ayurvedic knowledge for skin, hair, and body care.",
     color: "from-accent/20 to-accent/5",
+    website: "https://www.treyfa.in",
     categories: [
       { name: "Skin Care", benefit: "Hydration, Brightening, Anti-Aging" },
       { name: "Hair Care", benefit: "Growth, Strengthening, Scalp Health" },
@@ -21,6 +23,7 @@ const brands = [
     tagline: "Color & Specialty Division",
     description: "Specialized division dedicated to expanding the cancer-free promise into color cosmetics and specialized personal care, ensuring beauty doesn't compromise health.",
     color: "from-primary/20 to-primary/5",
+    website: "#",
     categories: [
       { name: "Natural Soaps", benefit: "Purify & Nourish Gently" },
       { name: "Color Cosmetics", benefit: "Cancer-Free Beauty" },
@@ -46,12 +49,12 @@ const BrandsSection = () => {
           {brands.map((brand, index) => (
             <Card
               key={index}
-              className="group cursor-pointer hover:shadow-xl transition-all duration-300 overflow-hidden slide-up"
+              className="group hover:shadow-xl transition-all duration-300 overflow-hidden slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`h-2 bg-gradient-to-r ${brand.color}`} />
               <div className="p-8">
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center justify-between mb-4">
                   <div className="h-16 flex items-center">
                     <img 
                       src={brand.logo} 
@@ -59,6 +62,15 @@ const BrandsSection = () => {
                       className="h-full w-auto object-contain max-w-[160px]"
                     />
                   </div>
+                  <a 
+                    href={brand.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                  >
+                    Visit Website
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
                 </div>
                 <p className="text-sm font-medium text-accent mb-4">
                   {brand.tagline}
