@@ -41,14 +41,14 @@ const ContactSection = () => {
           </form>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" size="lg">
-              Careers
+            <Button variant="outline" size="lg" asChild>
+              <a href="mailto:backeroindia@gmail.com?subject=Career Inquiry">Careers</a>
             </Button>
-            <Button variant="outline" size="lg">
-              Press Inquiries
+            <Button variant="outline" size="lg" asChild>
+              <a href="mailto:backeroindia@gmail.com?subject=Press Inquiry">Press Inquiries</a>
             </Button>
-            <Button variant="outline" size="lg">
-              Partnership Opportunities
+            <Button variant="outline" size="lg" asChild>
+              <a href="mailto:backeroindia@gmail.com?subject=Partnership Opportunity">Partnership Opportunities</a>
             </Button>
           </div>
         </div>

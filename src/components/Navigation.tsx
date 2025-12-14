@@ -52,8 +52,8 @@ const Navigation = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button variant="default" size="sm">
-            Get in Touch
+          <Button variant="default" size="sm" asChild>
+            <a href="mailto:backeroindia@gmail.com">Get in Touch</a>
           </Button>
         </div>
 
@@ -86,8 +86,8 @@ const Navigation = () => {
               </li>
             ))}
             <li className="pt-4">
-              <Button variant="default" className="w-full">
-                Get in Touch
+              <Button variant="default" className="w-full" asChild>
+                <a href="mailto:backeroindia@gmail.com">Get in Touch</a>
               </Button>
             </li>
           </ul>
