@@ -1,5 +1,3 @@
-import parimalaImage from "@/assets/parimala.png";
-import suryarajImage from "@/assets/suryaraj.jpeg";
 const AboutSection = () => {
   return <section id="about" className="section-padding bg-gradient-to-b from-background to-muted/30">
       <div className="container-custom">
@@ -64,7 +62,7 @@ const AboutSection = () => {
               <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden ring-4 ring-primary/20 shadow-2xl">
-                  <img alt="Parimala Gnana Soundari - Founder" className="w-full h-full object-cover" src="/lovable-uploads/55db6556-6aaf-4023-9da6-15820c661e6c.jpg" />
+                  <img alt="Parimala Gnana Soundari - Founder" className="w-full h-full object-cover" src="/images/55db6556-6aaf-4023-9da6-15820c661e6c.jpg" />
                 </div>
               </div>
               <h4 className="text-lg md:text-xl font-bold text-foreground mb-1">Parimala Gnana Soundari</h4>
@@ -83,7 +81,7 @@ const AboutSection = () => {
               <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden ring-4 ring-accent/20 shadow-2xl">
-                  <img alt="Suryaraj - Managing Director" className="w-full h-full object-cover object-center" src="/lovable-uploads/2273286a-6556-4662-8c28-4d308e0c4dca.png" />
+                  <img alt="Suryaraj - Managing Director" className="w-full h-full object-cover object-center" src="/images/2273286a-6556-4662-8c28-4d308e0c4dca.png" />
                 </div>
               </div>
               <h4 className="text-lg md:text-xl font-bold text-foreground mb-1">Suryaraj</h4>
