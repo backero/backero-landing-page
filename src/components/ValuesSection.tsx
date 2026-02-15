@@ -1,32 +1,43 @@
-import { Laptop, ShoppingCart, FlaskConical, Rocket, Truck } from "lucide-react";
+import {
+  Laptop,
+  ShoppingCart,
+  FlaskConical,
+  Rocket,
+  Truck,
+} from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const values = [
   {
     icon: Laptop,
-    title: "Technology & Digital Services",
-    description: "Leading innovation in IT services with AI-driven solutions and digital transformation."
+    title: "Digital Innovation",
+    description:
+      "Driving growth through AI-powered IT solutions and seamless digital transformation services.",
   },
   {
     icon: ShoppingCart,
-    title: "Marketplace Operations",
-    description: "Expert presence across Amazon, Flipkart, JioMart, and other major e-commerce platforms."
+    title: "E-Commerce Excellence",
+    description:
+      "Dominating major marketplaces like Amazon, Flipkart, and JioMart with strategic operations.",
   },
   {
     icon: FlaskConical,
-    title: "Cosmetic Research & Manufacturing",
-    description: "In-house R&D facilities ensuring cancer-free, research-backed beauty products."
+    title: "Scientific R&D",
+    description:
+      "State-of-the-art labs formulating cancer-free, scientifically validated beauty products.",
   },
   {
     icon: Rocket,
-    title: "Brand Development",
-    description: "Building purpose-driven brands with strong e-commerce integration and market presence."
+    title: "Brand Strategy",
+    description:
+      "Cultivating purpose-driven brands with robust market positioning and consumer trust.",
   },
   {
     icon: Truck,
-    title: "Quick Commerce & Omnichannel",
-    description: "Pan-India distribution including remote areas through omnichannel retail strategy."
-  }
+    title: "Omnichannel Logistics",
+    description:
+      "Efficient pan-India distribution network ensuring product accessibility everywhere.",
+  },
 ];
 
 const ValuesSection = () => {
@@ -36,8 +47,9 @@ const ValuesSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-primary mb-4">Our Focus Areas</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Under visionary leadership, Backero continues to evolve as a multidisciplinary 
-            company blending technology, wellness, and sustainability.
+            Under visionary leadership, Backero continues to evolve as a
+            multidisciplinary company blending technology, wellness, and
+            sustainability.
           </p>
         </div>
 

@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -52,7 +57,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ["Outfit", "Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -82,7 +87,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fadeIn 0.8s ease-out",
         "slide-up": "slideUp 0.8s ease-out",
-        "float": "float 6s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
       },
     },
   },

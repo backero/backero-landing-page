@@ -4,27 +4,27 @@ const highlights = [
   {
     icon: Sparkles,
     number: "2",
-    label: "Premium Brands",
-    description: "Treyfa & Kymarie"
+    label: "Signature Brands",
+    description: "Treyfa & Kymarie",
   },
   {
     icon: Package,
     number: "B2B & B2C",
-    label: "Distribution",
-    description: "Production to Export"
+    label: "Global Reach",
+    description: "Production to Export",
   },
   {
     icon: MapPin,
     number: "Pan-India",
-    label: "Coverage",
-    description: "Including remote areas"
+    label: "Presence",
+    description: "Serving even remote areas",
   },
   {
     icon: ShoppingBag,
     number: "100%",
-    label: "Cancer-Free",
-    description: "Certified cosmetics"
-  }
+    label: "Safety Assured",
+    description: "Certified Cancer-Free",
+  },
 ];
 
 const HighlightsSection = () => {

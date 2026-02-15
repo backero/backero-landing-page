@@ -21,9 +21,11 @@ const HeroSection = () => {
           Complete Cosmetics Solution <br />
           <span className="text-primary">From Production to Export</span>
         </h1>
-        
-        <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-          India's first certified cancer-free cosmetics brand. B2B & B2C solutions delivering premium, research-backed beauty products through Ayurvedic heritage and modern science.
+
+        <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+          Pioneering safe beauty with India's first certified cancer-free
+          cosmetics. We deliver premium, research-backed B2B & B2C solutions
+          blending Ayurvedic wisdom with modern science.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

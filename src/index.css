@@ -48,7 +48,11 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(215 50% 20% / 0.05), hsl(95 55% 47% / 0.05));
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(215 50% 20% / 0.05),
+      hsl(95 55% 47% / 0.05)
+    );
     --section-spacing: 6rem;
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -89,14 +93,19 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: 'cv11', 'ss01';
+    font-feature-settings: "cv11", "ss01";
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-semibold tracking-tight;
   }
 
@@ -148,5 +157,13 @@ All colors MUST be HSL.
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .font-serif {
+    font-family: "Outfit", sans-serif;
+  }
+
+  .font-sans {
+    font-family: "Outfit", sans-serif;
   }
 }

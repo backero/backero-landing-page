@@ -15,18 +15,23 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-primary/10 via-background to-accent/10">
+    <section
+      id="contact"
+      className="section-padding bg-gradient-to-br from-primary/10 via-background to-accent/10"
+    >
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-primary mb-6">
-            Join Our Journey
-          </h2>
+          <h2 className="text-primary mb-6">Partner with Us</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Stay connected with Backero. Subscribe to receive updates on new product launches, 
-            sustainability initiatives, and exclusive insights from our team.
+            Be part of the clean beauty revolution. Subscribe for exclusive
+            insights on sustainability, product innovations, and strategic
+            opportunities.
           </p>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-12">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-12"
+          >
             <Input
               type="email"
               placeholder="Enter your email"
@@ -42,13 +47,19 @@ const ContactSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="outline" size="lg" asChild>
-              <a href="mailto:backeroindia@gmail.com?subject=Career Inquiry">Careers</a>
+              <a href="mailto:backeroindia@gmail.com?subject=Career Inquiry">
+                Careers
+              </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="mailto:backeroindia@gmail.com?subject=Press Inquiry">Press Inquiries</a>
+              <a href="mailto:backeroindia@gmail.com?subject=Press Inquiry">
+                Press Inquiries
+              </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="mailto:backeroindia@gmail.com?subject=Partnership Opportunity">Partnership Opportunities</a>
+              <a href="mailto:backeroindia@gmail.com?subject=Partnership Opportunity">
+                Partnership Opportunities
+              </a>
             </Button>
           </div>
         </div>

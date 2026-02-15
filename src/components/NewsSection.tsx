@@ -4,26 +4,29 @@ import { ArrowRight } from "lucide-react";
 
 const news = [
   {
-    category: "Press Release",
+    category: "Corporate Milestone",
     date: "March 2024",
-    title: "Backero Expands Portfolio with Acquisition of Eco-Luxury Brand",
-    excerpt: "Strategic move strengthens position in sustainable beauty segment and enhances omni-channel presence.",
-    image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=800&h=600&fit=crop"
+    title: "Backero Strengthens Global Footprint with Strategic Expansion",
+    excerpt:
+      "New partnerships and market entry strategies fortify our position as a leader in sustainable beauty exports.",
+    image: "./placeholder.svg",
   },
   {
-    category: "Award",
+    category: "Industry Recognition",
     date: "February 2024",
-    title: "Pureté Wins 'Best Clean Beauty Brand' at Industry Awards",
-    excerpt: "Recognition for innovation in sustainable skincare and commitment to transparency.",
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=600&fit=crop"
+    title: "Treyfa Awarded 'Best Clean Beauty Innovation' of the Year",
+    excerpt:
+      "Celebrating excellence in non-toxic formulations and our commitment to consumer safety standards.",
+    image: "./placeholder.svg",
   },
   {
-    category: "Announcement",
+    category: "Innovation",
     date: "January 2024",
-    title: "New R&D Center Opens, Focuses on Biotechnology & Clean Formulations",
-    excerpt: "State-of-the-art facility will accelerate product innovation and scientific research.",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=600&fit=crop"
-  }
+    title: "Inauguration of Advanced Biotech R&D Facility",
+    excerpt:
+      "A leap forward in clean science, enabling the development of next-generation bioactive cosmetics.",
+    image: "./placeholder.svg",
+  },
 ];
 
 const NewsSection = () => {
@@ -34,7 +37,8 @@ const NewsSection = () => {
           <div>
             <h2 className="text-primary mb-4">Latest News & Highlights</h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Stay updated with our latest achievements, product launches, and company milestones.
+              Stay updated with our latest achievements, product launches, and
+              company milestones.
             </p>
           </div>
         </div>
@@ -59,17 +63,15 @@ const NewsSection = () => {
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-sm text-muted-foreground mb-2">{item.date}</p>
+                <p className="text-sm text-muted-foreground mb-2">
+                  {item.date}
+                </p>
                 <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {item.excerpt}
                 </p>
-                <Button variant="link" className="p-0 h-auto group/link">
-                  Read More
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-                </Button>
               </div>
             </Card>
           ))}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brand Background -->
+  <rect width="512" height="512" rx="128" fill="#1A2F4D"/>
+  
+  <!-- "B" Text -->
+  <text x="235" y="380" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="320" text-anchor="middle" fill="white">B</text>
+  
+  <!-- Leaf Symbol - Adjusted to be clearer and simpler -->
+  <!-- A simple curved leaf shape starting from the top right of the B's structure -->
+  <path d="M 330 160 
+           Q 380 90 440 90 
+           Q 460 130 420 180 
+           Q 370 200 330 160 Z" 
+        fill="white"/>
+</svg>
