@@ -112,7 +112,7 @@ const ContactSection = () => {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/91XXXXXXXXXX?text=Hi%20Backero%2C%20I%27d%20like%20to%20discuss%20a%20manufacturing%20partnership."
+              href="https://wa.me/918903412061?text=Hi%20Backero%2C%20I%27d%20like%20to%20discuss%20a%20manufacturing%20partnership."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-4 rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
