@@ -7,62 +7,68 @@ const brands = [
     id: "treyfa",
     name: "Treyfa",
     logo: treyfaLogo,
-    tagline: "Natural & Herbal Beauty Essentials",
+    tagline: "Premium Personal Care Solutions",
     description:
-      "India's First Certified Cancer-Free Cosmetics, Handcrafted with Ayurvedic Heritage. Treyfa merges ancient wisdom with modern safety standards to create products that nurture without harm.",
+      "Treyfa is Backero's flagship consumer brand — delivering premium personal care solutions designed for effective daily care. Built on the foundation of stringent quality standards and scientifically backed formulations.",
     website: "https://www.treyfa.in",
-    bgGradient: "from-[#F9FBE7] to-[#F0F4C3]", // Soft herbal green/yellow
+    bgGradient: "from-[#F9FBE7] to-[#F0F4C3]",
     accentColor: "text-accent",
     buttonColor: "bg-accent hover:bg-accent/90",
     categories: ["Skin Care", "Hair Care", "Bath & Body"],
+    proof: "Live consumer brand with active market presence",
   },
   {
     id: "kymarie",
     name: "Kymarie",
     logo: kymarieLogo,
-    tagline: "Cruelty-Free & Eco-Friendly Beauty",
+    tagline: "Customized Handcrafted Soaps",
     description:
-      "Handcrafted soaps and specialty care products made with natural ingredients. Kymarie represents the playful yet responsible side of beauty, ensuring every wash is a guilt-free indulgence.",
+      "Kymarie showcases Backero's artisanal formulation expertise — customized handcrafted soaps designed with creativity and quality ingredients, demonstrating our ability to execute niche product development at scale.",
     website: "#",
-    bgGradient: "from-[#E3F2FD] to-[#BBDEFB]", // Soft blue
+    bgGradient: "from-[#E3F2FD] to-[#BBDEFB]",
     accentColor: "text-primary",
     buttonColor: "bg-primary hover:bg-primary/90",
     categories: ["Natural Soaps", "Specialty Care", "pH Balanced Formulas"],
+    proof: "Specialty handcrafted product line",
   },
 ];
 
 const BrandsSection = () => {
   return (
     <section id="brands" className="relative">
-      <div className="text-center py-20 bg-background container-custom">
-        <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 mb-6 inline-block tracking-tight">
+      <div className="text-center py-10 md:py-14 bg-background container-custom">
+        <span className="inline-block text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+          Our Portfolio
+        </span>
+        <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 mb-4 inline-block tracking-tight">
           Our Brands
         </h2>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-          Pioneering ethical and clean beauty with{" "}
+        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
+          We develop and manage our own consumer brands — demonstrating our
+          ability to execute{" "}
           <strong className="text-foreground font-medium">
-            India's First Certified Cancer-Free Cosmetics
-          </strong>
-          .
+            from formulation to market success.
+          </strong>{" "}
+          This is your proof that we can do it for you too.
         </p>
       </div>
 
-      <div className="container-custom flex flex-col gap-20 pb-20">
+      <div className="container-custom flex flex-col gap-8 pb-12">
         {brands.map((brand, index) => (
           <div
             key={brand.id}
             className={`
-              relative w-full min-h-[500px] md:min-h-[600px] flex flex-col md:flex-row items-stretch
-              overflow-hidden rounded-3xl shadow-lg border border-border/50
+              relative w-full min-h-[320px] md:min-h-[380px] flex flex-col md:flex-row items-stretch
+              overflow-hidden rounded-2xl shadow-md border border-border/50
               ${index % 2 === 1 ? "md:flex-row-reverse" : ""}
             `}
           >
             {/* Visual Half */}
             <div
               className={`
-              w-full md:w-1/2 min-h-[300px] md:min-h-auto
+              w-full md:w-2/5 min-h-[180px] md:min-h-auto
               bg-gradient-to-br ${brand.bgGradient}
-              relative flex items-center justify-center p-8 md:p-12
+              relative flex items-center justify-center p-6 md:p-8
               group
             `}
             >
@@ -74,42 +80,48 @@ const BrandsSection = () => {
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="w-auto h-auto max-h-[180px] md:max-h-[250px] object-contain drop-shadow-2xl"
+                  className="w-auto h-auto max-h-[120px] md:max-h-[150px] object-contain drop-shadow-xl"
                 />
               </div>
             </div>
 
             {/* Content Half */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-16 lg:p-20 bg-card z-10">
+            <div className="w-full md:w-3/5 flex flex-col justify-center p-6 md:p-8 lg:p-10 bg-card z-10">
               <span
                 className={`text-sm font-bold uppercase tracking-widest mb-4 ${brand.accentColor} flex items-center gap-2`}
               >
                 <span className="w-8 h-[2px] bg-current"></span>
-                Official Brand
+                Owned Brand
               </span>
 
-              <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 md:mb-3">
                 {brand.name}
               </h3>
 
-              <p className="text-lg md:text-xl font-medium text-foreground/80 mb-4 md:mb-6 italic font-serif">
+              <p className="text-sm md:text-base font-medium text-foreground/80 mb-2 md:mb-3 italic font-serif">
                 "{brand.tagline}"
               </p>
 
-              <p className="text-muted-foreground leading-relaxed text-base md:text-lg mb-8 md:mb-10 font-light">
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-4 font-light">
                 {brand.description}
               </p>
 
-              <div className="space-y-8 mt-auto">
+              {/* Proof badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/15 text-primary text-xs font-semibold mb-4 w-fit">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                {brand.proof}
+              </div>
+
+              <div className="space-y-4 mt-auto">
                 <div>
-                  <h4 className="text-sm font-semibold uppercase text-muted-foreground tracking-wider mb-4">
+                  <h4 className="text-xs font-semibold uppercase text-muted-foreground tracking-wider mb-2">
                     Key Categories
                   </h4>
-                  <div className="flex flex-wrap gap-2 md:gap-3">
+                  <div className="flex flex-wrap gap-1.5">
                     {brand.categories.map((cat, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 md:px-4 md:py-2 bg-secondary/50 rounded-full text-foreground/80 text-xs md:text-sm font-medium border border-border"
+                        className="px-3 py-1 bg-secondary/50 rounded-full text-foreground/80 text-xs font-medium border border-border"
                       >
                         {cat}
                       </span>
@@ -117,22 +129,44 @@ const BrandsSection = () => {
                   </div>
                 </div>
 
-                <a
-                  href={brand.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`
-                    inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full text-white font-semibold tracking-wide text-sm md:text-base
-                    transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg
-                    ${brand.buttonColor}
-                  `}
-                >
-                  Visit Website <ExternalLink className="w-4 h-4" />
-                </a>
+                {brand.website !== "#" && (
+                  <a
+                    href={brand.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`
+                      inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white font-semibold tracking-wide text-sm
+                      transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg
+                      ${brand.buttonColor}
+                    `}
+                  >
+                    Visit Website <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* CTA below brands */}
+      <div className="container-custom pb-12">
+        <div className="rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border border-border p-6 md:p-8 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+            Want Backero to Build Your Brand?
+          </h3>
+          <p className="text-muted-foreground mb-5 max-w-2xl mx-auto leading-relaxed text-base">
+            If we can build Treyfa and Kymarie from scratch — we can do it for
+            you too. Let's discuss your product vision.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors duration-200"
+          >
+            Start a Conversation
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

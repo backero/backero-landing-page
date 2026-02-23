@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
 import backeroLogo from "@/assets/backero-logo.png";
 
 const Footer = () => {
@@ -7,13 +7,13 @@ const Footer = () => {
   const footerLinks = {
     Company: [
       { label: "About Us", href: "#about" },
-      { label: "Our Brands", href: "#brands" },
-      { label: "Our Story", href: "#story" },
+      { label: "Our Journey", href: "#story" },
+      { label: "Awards", href: "#achievements" },
     ],
-    Quick: [
-      { label: "Contact", href: "#contact" },
-      { label: "Values", href: "#values" },
-      { label: "News", href: "#news" },
+    Services: [
+      { label: "Manufacturing & R&D", href: "#services" },
+      { label: "Brand Development", href: "#services" },
+      { label: "Private Label", href: "#services" },
     ],
   };
 
@@ -34,17 +34,18 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Brand */}
-          <div>
+          <div className="lg:col-span-2">
             <img src={backeroLogo} alt="Backero" className="h-10 w-auto mb-4" />
-            <p className="text-muted-foreground mb-4">
-              India's first certified cancer-free cosmetics brand. Complete
-              cosmetics solution from production to export.
+            <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+              Research-driven cosmetic and personal care company specializing in
+              advanced formulations, contract manufacturing, and brand
+              development support.
             </p>
             <a
               href="mailto:backeroindia@gmail.com"
-              className="text-primary hover:text-primary/80 transition-colors font-medium"
+              className="text-primary hover:text-primary/80 transition-colors font-medium text-sm"
             >
               backeroindia@gmail.com
             </a>
@@ -73,7 +74,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.label}
                     </a>
@@ -92,7 +93,7 @@ const Footer = () => {
                   href="https://www.treyfa.in"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Treyfa
                 </a>
@@ -100,12 +101,22 @@ const Footer = () => {
               <li>
                 <a
                   href="#brands"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Kymarie
                 </a>
               </li>
             </ul>
+
+            <div className="mt-6">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              >
+                Partner With Us
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -132,7 +143,7 @@ const Footer = () => {
                 Registered Address
               </p>
               <p className="text-foreground">
-                No.42, Interflex complex, near 5K carcare, Trichy road, Sulur,
+                No.42, Interflex Complex, Near 5K Carcare, Trichy Road, Sulur,
                 Coimbatore 641402
               </p>
             </div>
@@ -143,6 +154,9 @@ const Footer = () => {
         <div className="pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear} Backero Private Limited. All rights reserved.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Research · Manufacturing · Innovation
           </p>
         </div>
       </div>

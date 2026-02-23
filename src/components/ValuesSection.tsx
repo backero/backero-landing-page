@@ -1,42 +1,42 @@
 import {
-  Laptop,
-  ShoppingCart,
   FlaskConical,
-  Rocket,
-  Truck,
+  Factory,
+  Package,
+  Lightbulb,
+  ShieldCheck,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const values = [
   {
-    icon: Laptop,
-    title: "Digital Innovation",
-    description:
-      "Driving growth through AI-powered IT solutions and seamless digital transformation services.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce Excellence",
-    description:
-      "Dominating major marketplaces like Amazon, Flipkart, and JioMart with strategic operations.",
-  },
-  {
     icon: FlaskConical,
-    title: "Scientific R&D",
+    title: "Research-Driven Approach",
     description:
-      "State-of-the-art labs formulating cancer-free, scientifically validated beauty products.",
+      "Every product begins in our R&D lab — using scientifically validated ingredients and modern cosmetic research to deliver formulations that work.",
   },
   {
-    icon: Rocket,
-    title: "Brand Strategy",
+    icon: Factory,
+    title: "Flexible Manufacturing",
     description:
-      "Cultivating purpose-driven brands with robust market positioning and consumer trust.",
+      "From pilot batch to full-scale production, our manufacturing adapts to your brand's growth stage and volume requirements.",
   },
   {
-    icon: Truck,
-    title: "Omnichannel Logistics",
+    icon: ShieldCheck,
+    title: "Quality-Focused Processes",
     description:
-      "Efficient pan-India distribution network ensuring product accessibility everywhere.",
+      "Strict quality control standards are maintained throughout every stage of production — ensuring safety, consistency, and performance.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Innovation-Led Development",
+    description:
+      "We stay ahead of market trends, constantly developing new formulations and product concepts to keep your brand competitive.",
+  },
+  {
+    icon: Package,
+    title: "End-to-End Brand Support",
+    description:
+      "From concept ideation and formulation to manufacturing and packaging — we support your brand journey at every milestone.",
   },
 ];
 
@@ -45,11 +45,13 @@ const ValuesSection = () => {
     <section id="values" className="section-padding bg-muted">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-primary mb-4">Our Focus Areas</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Under visionary leadership, Backero continues to evolve as a
-            multidisciplinary company blending technology, wellness, and
-            sustainability.
+          <span className="inline-block text-xs font-semibold text-primary uppercase tracking-widest mb-3">
+            Our Strengths
+          </span>
+          <h2 className="text-primary mb-4">Why Brands Choose Backero</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+            We don't just manufacture products — we build partnerships that help
+            brands grow through technical excellence and reliable delivery.
           </p>
         </div>
 
@@ -57,10 +59,10 @@ const ValuesSection = () => {
           {values.map((value, index) => (
             <Card
               key={index}
-              className="p-6 text-center hover:shadow-lg transition-shadow slide-up"
+              className="p-6 text-center hover:shadow-lg hover:border-primary/20 transition-all duration-300 slide-up group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                 <value.icon className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">

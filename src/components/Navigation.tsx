@@ -17,10 +17,9 @@ const Navigation = () => {
 
   const navLinks = [
     { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
     { label: "Brands", href: "#brands" },
-    { label: "Story", href: "#story" },
-    { label: "Values", href: "#values" },
-    { label: "News", href: "#news" },
+    { label: "Our Journey", href: "#story" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -33,7 +32,11 @@ const Navigation = () => {
       <nav className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <img src={backeroLogo} alt="Backero" className="h-10 md:h-12 w-auto" />
+          <img
+            src={backeroLogo}
+            alt="Backero"
+            className="h-10 md:h-12 w-auto"
+          />
         </a>
 
         {/* Desktop Navigation */}
@@ -53,7 +56,7 @@ const Navigation = () => {
         {/* CTA Button */}
         <div className="hidden md:block">
           <Button variant="default" size="sm" asChild>
-            <a href="mailto:backeroindia@gmail.com">Get in Touch</a>
+            <a href="#contact">Partner With Us</a>
           </Button>
         </div>
 
@@ -87,7 +90,7 @@ const Navigation = () => {
             ))}
             <li className="pt-4">
               <Button variant="default" className="w-full" asChild>
-                <a href="mailto:backeroindia@gmail.com">Get in Touch</a>
+                <a href="#contact">Partner With Us</a>
               </Button>
             </li>
           </ul>
