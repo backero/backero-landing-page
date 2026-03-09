@@ -4,12 +4,24 @@
     <loc>https://backero.in/</loc>
   </url>
   <url>
-    <loc>https://backero.in/about</loc>
+    <loc>https://backero.in/#about</loc>
   </url>
   <url>
-    <loc>https://backero.in/products</loc>
+    <loc>https://backero.in/#services</loc>
   </url>
   <url>
-    <loc>https://backero.in/contact</loc>
+    <loc>https://backero.in/#brands</loc>
+  </url>
+  <url>
+    <loc>https://backero.in/#achievements</loc>
+  </url>
+  <url>
+    <loc>https://backero.in/#story</loc>
+  </url>
+  <url>
+    <loc>https://backero.in/#values</loc>
+  </url>
+  <url>
+    <loc>https://backero.in/#contact</loc>
   </url>
 </urlset>
