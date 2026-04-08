@@ -1,0 +1,29 @@
+{
+  "name": "Backero Private Limited - Cosmetics R&D & Manufacturing",
+  "short_name": "Backero",
+  "description": "Research-driven cosmetics manufacturing company specializing in contract manufacturing, R&D, and brand development",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "form_factor": "wide",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["business", "manufacturing"],
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}

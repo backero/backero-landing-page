@@ -10,15 +10,17 @@ import heroBanner from "@/assets/hero-banner.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero section - Innovative Personal Care Manufacturing and R&D Solutions">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroBanner}
-          alt="Advanced personal care manufacturing and R&D laboratory"
+          alt="State-of-the-art personal care manufacturing facility and R&D laboratory with modern equipment"
           className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/60" aria-hidden="true" />
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -26,6 +28,7 @@ const HeroSection = () => {
               "radial-gradient(circle at 1px 1px, hsl(215 50% 20%) 1px, transparent 0)",
             backgroundSize: "40px 40px",
           }}
+          aria-hidden="true"
         />
       </div>
 
@@ -33,7 +36,7 @@ const HeroSection = () => {
       <div className="relative z-10 container-custom text-center fade-in w-full px-4 sm:px-6">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-6 sm:mb-8 text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest">
-          <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+          <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" aria-hidden="true" />
           <span>Research · Manufacturing · Innovation</span>
         </div>
 
@@ -58,9 +61,9 @@ const HeroSection = () => {
             className="group w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base"
             asChild
           >
-            <a href="#services">
+            <a href="#services" aria-label="Explore our manufacturing and R&D capabilities">
               Explore Our Capabilities
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </a>
           </Button>
           <Button
@@ -69,13 +72,13 @@ const HeroSection = () => {
             className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base"
             asChild
           >
-            <a href="#contact">Partner With Us</a>
+            <a href="#contact" aria-label="Get in touch to partner with us">Partner With Us</a>
           </Button>
         </div>
 
         {/* Quick stats */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-xs sm:max-w-sm md:max-w-2xl mx-auto">
-          {[
+        <ul className="grid grid-cols-3 gap-2 sm:gap-4 max-w-xs sm:max-w-sm md:max-w-2xl mx-auto list-none p-0">
+            {[
             {
               icon: FlaskConical,
               label: "In-House R&D",
@@ -92,28 +95,29 @@ const HeroSection = () => {
               sub: "Treyfa & Kymarie",
             },
           ].map((item, i) => (
-            <div
+            <li
               key={i}
               className="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-card/40 backdrop-blur-sm border border-border/40"
             >
-              <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mb-1 sm:mb-1.5" />
+              <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mb-1 sm:mb-1.5" aria-hidden="true" />
               <div className="text-[10px] sm:text-xs font-semibold text-foreground leading-tight text-center">
                 {item.label}
               </div>
               <div className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">
                 {item.sub}
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* Scroll Indicator */}
       <a
         href="#highlights"
         className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce"
+        aria-label="Scroll down to explore highlights"
       >
-        <ChevronDown className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+        <ChevronDown className="h-6 w-6 sm:h-8 sm:w-8 text-primary" aria-hidden="true" />
       </a>
     </section>
   );

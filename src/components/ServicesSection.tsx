@@ -73,14 +73,18 @@ const process = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="section-padding bg-background">
+    <section 
+      id="services" 
+      className="section-padding bg-background"
+      aria-label="Our Manufacturing and R&D Services"
+    >
       <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-16 slide-up">
           <span className="inline-block text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-3">
             Manufacturing & R&D
           </span>
-          <h2 className="text-primary mb-6">End-to-End Product Development</h2>
+          <h2 className="text-primary mb-6 font-bold text-3xl md:text-4xl">End-to-End Product Development</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
             From concept to commercialization — we provide the scientific
             expertise and manufacturing infrastructure that B2B brands need to
@@ -91,13 +95,14 @@ const ServicesSection = () => {
         {/* Capabilities Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-20">
           {capabilities.map((cap, index) => (
-            <div
+            <article
               key={index}
               className={`rounded-2xl p-8 bg-gradient-to-br ${cap.gradient} border border-border/50 hover:shadow-xl transition-all duration-300 slide-up`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div
                 className={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${cap.iconBg} ${cap.iconColor} mb-6`}
+                aria-hidden="true"
               >
                 <cap.icon className="w-7 h-7" />
               </div>
@@ -107,18 +112,18 @@ const ServicesSection = () => {
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {cap.description}
               </p>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2.5 list-none p-0">
                 {cap.points.map((point, i) => (
                   <li
                     key={i}
                     className="flex items-center gap-3 text-sm text-foreground/80"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
                     {point}
                   </li>
                 ))}
               </ul>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -134,15 +139,15 @@ const ServicesSection = () => {
           </div>
           <div className="relative">
             {/* Connector line */}
-            <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" aria-hidden="true" />
+            <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 list-none p-0">
               {process.map((step, index) => (
-                <div
+                <li
                   key={index}
                   className="flex flex-col items-center text-center group"
                 >
                   <div className="relative z-10 w-16 h-16 rounded-full bg-card border-2 border-primary/20 flex items-center justify-center mb-4 group-hover:border-primary group-hover:bg-primary/5 transition-all duration-300 shadow-sm">
-                    <span className="text-lg font-bold text-primary">
+                    <span className="text-lg font-bold text-primary" aria-label={`Step ${step.step}`}>
                       {step.step}
                     </span>
                   </div>
@@ -152,15 +157,15 @@ const ServicesSection = () => {
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     {step.desc}
                   </p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
 
         {/* Quality Commitment Banner */}
-        <div className="rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-8 md:p-12 text-center text-primary-foreground">
-          <ShieldCheck className="w-12 h-12 mx-auto mb-4 opacity-80" />
+        <aside className="rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-8 md:p-12 text-center text-primary-foreground">
+          <ShieldCheck className="w-12 h-12 mx-auto mb-4 opacity-80" aria-hidden="true" />
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Our Quality Commitment
           </h3>
@@ -172,11 +177,12 @@ const ServicesSection = () => {
           <a
             href="#contact"
             className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-3.5 rounded-full hover:bg-primary-foreground/90 transition-colors duration-200"
+            aria-label="Discuss your project with our team"
           >
             Discuss Your Project
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
-        </div>
+        </aside>
       </div>
     </section>
   );

@@ -43,6 +43,7 @@ const AboutSection = () => {
     <section
       id="about"
       className="section-padding bg-gradient-to-b from-background to-muted/30"
+      aria-label="About Backero Private Limited"
     >
       <div className="container-custom">
         {/* Header */}
@@ -50,7 +51,7 @@ const AboutSection = () => {
           <span className="inline-block text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-3 md:mb-4">
             Who We Are
           </span>
-          <h2 className="text-primary text-2xl sm:text-3xl md:text-4xl mb-6 md:mb-8">
+          <h2 className="text-primary text-2xl sm:text-3xl md:text-4xl mb-6 md:mb-8 font-bold">
             About Backero Private Limited
           </h2>
           <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
@@ -72,8 +73,8 @@ const AboutSection = () => {
           className="grid md:grid-cols-2 gap-6 mb-16 slide-up"
           style={{ animationDelay: "0.1s" }}
         >
-          <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+          <article className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4" aria-hidden="true">
               <Lightbulb className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-3">
@@ -84,9 +85,9 @@ const AboutSection = () => {
               manufacturing by delivering scientifically advanced and
               consumer-centric products.
             </p>
-          </div>
-          <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+          </article>
+          <article className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4" aria-hidden="true">
               <ShieldCheck className="w-6 h-6 text-accent" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-3">
@@ -97,7 +98,7 @@ const AboutSection = () => {
               manufacturing, and innovative product development support that
               drives real market success.
             </p>
-          </div>
+          </article>
         </div>
 
         {/* Core Expertise */}
@@ -110,21 +111,21 @@ const AboutSection = () => {
               Our Core Expertise
             </h3>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 list-none p-0">
             {expertise.map((item, index) => (
-              <div
+              <li
                 key={index}
                 className="flex flex-col items-center text-center p-5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" aria-hidden="true">
                   <item.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <p className="text-sm font-semibold text-foreground">
                   {item.title}
                 </p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* Why Choose Backero */}
@@ -140,22 +141,22 @@ const AboutSection = () => {
               Why Choose Backero
             </h3>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none p-0">
             {whyUs.map((item, index) => (
-              <div
+              <li
                 key={index}
                 className="flex items-start gap-4 p-4 rounded-xl bg-card/60 border border-border/50"
               >
-                <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">
                     {item.title}
                   </h4>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* Founder Message */}
