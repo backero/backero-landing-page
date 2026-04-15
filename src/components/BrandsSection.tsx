@@ -1,11 +1,11 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
 import treyfaLogo from "@/assets/treyfa-logo.png";
-import kymarieLogo from "@/assets/kymarie-logo.png";
+import kumarieLogo from "@/assets/kumarie-logo.png";
 
 const brands = [
   {
     id: "treyfa",
-    name: "Treyfa",
+    name: "Treyfa", 
     logo: treyfaLogo,
     tagline: "Premium Personal Care Solutions",
     description:
@@ -18,13 +18,13 @@ const brands = [
     proof: "Live consumer brand with active market presence",
   },
   {
-    id: "kymarie",
-    name: "Kymarie",
-    logo: kymarieLogo,
+    id: "kumarie",
+    name: "Kumarie",
+    logo: kumarieLogo,
     tagline: "Customized Handcrafted Soaps",
     description:
-      "Kymarie showcases Backero's artisanal formulation expertise — customized handcrafted soaps designed with creativity and quality ingredients, demonstrating our ability to execute niche product development at scale.",
-    website: "#",
+      "Kumarie showcases Backero's artisanal formulation expertise — customized handcrafted soaps designed with creativity and quality ingredients, demonstrating our ability to execute niche product development at scale.",
+    website: "https://www.kumarie.in",
     bgGradient: "from-[#E3F2FD] to-[#BBDEFB]",
     accentColor: "text-primary",
     buttonColor: "bg-primary hover:bg-primary/90",
@@ -156,7 +156,7 @@ const BrandsSection = () => {
             Want Backero to Build Your Brand?
           </h3>
           <p className="text-muted-foreground mb-5 max-w-2xl mx-auto leading-relaxed text-base">
-            If we can build Treyfa and Kymarie from scratch — we can do it for
+            If we can build Treyfa and Kumarie from scratch — we can do it for
             you too. Let's discuss your product vision.
           </p>
           <a

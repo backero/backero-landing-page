@@ -63,6 +63,10 @@ const ContactSection = () => {
             Fill in the form and we'll get back to you within{" "}
             <span className="font-semibold text-foreground">24 hours</span>.
           </p>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
+            For fast manufacturing quotes and product development partnerships,
+            use the form, email, or WhatsApp chat and our team will reply quickly.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
@@ -105,6 +109,22 @@ const ContactSection = () => {
                     className="text-sm text-primary hover:text-primary/80 transition-colors font-medium"
                   >
                     backeroindia@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Phone className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+918903412061"
+                    className="text-sm text-primary hover:text-primary/80 transition-colors font-medium"
+                  >
+                    +91 89034 12061
                   </a>
                 </div>
               </div>

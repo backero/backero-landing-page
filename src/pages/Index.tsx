@@ -12,7 +12,11 @@ import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
-import { organizationSchema, addJSONLDScript } from "@/lib/seo";
+import {
+  organizationSchema,
+  addJSONLDScript,
+  generateRequestQuoteSchema,
+} from "@/lib/seo";
 
 const Index = () => {
   useEffect(() => {
@@ -43,16 +47,44 @@ const Index = () => {
       description:
         "Research-driven cosmetics manufacturing company specializing in contract manufacturing, R&D, and brand development",
       url: "https://backero.in",
-      telephone: "+91-XXXX-XXXX-XX",
+      telephone: "+91-89034-12061",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "No.42, Interflex Complex, Near 5K Carcare",
+        addressLocality: "Sulur",
+        addressRegion: "Tamil Nadu",
+        postalCode: "641402",
         addressCountry: "IN",
-        addressRegion: "India",
       },
       areaServed: ["IN"],
       priceRange: "$$",
+      businessHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+          ],
+          opens: "09:00",
+          closes: "18:00",
+        },
+      ],
+      potentialAction: {
+        "@type": "RequestQuoteAction",
+        name: "Request a custom manufacturing quote",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://backero.in/#contact",
+        },
+      },
     };
     addJSONLDScript(localBusinessSchema, "local-business-schema");
+
+    // Add Request Quote Action Schema for lead generation
+    addJSONLDScript(generateRequestQuoteSchema(), "request-quote-schema");
   }, []);
 
   return (

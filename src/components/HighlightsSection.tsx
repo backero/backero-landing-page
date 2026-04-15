@@ -17,7 +17,7 @@ const highlights = [
     icon: Package,
     number: "2",
     label: "Owned Brands",
-    description: "Treyfa & Kymarie",
+    description: "Treyfa & Kumarie",
   },
   {
     icon: CheckCircle,

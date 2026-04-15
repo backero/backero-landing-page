@@ -14,7 +14,7 @@ const proofs = [
   {
     icon: Award,
     stat: "2 Live Brands",
-    detail: "Treyfa & Kymarie — proof we deliver",
+    detail: "Treyfa & Kumarie — proof we deliver",
   },
 ];
 
@@ -66,7 +66,7 @@ const CTASection = () => {
             href="#contact"
             className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-7 py-3.5 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base hover:bg-white/90 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
           >
-            Start a Project With Us
+            Request a Quote Today
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

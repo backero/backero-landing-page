@@ -46,13 +46,13 @@ const HeroSection = () => {
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto font-light leading-relaxed px-2">
-          Backero Private Limited is a research-driven cosmetic and personal
-          care company specializing in advanced formulations, contract
-          manufacturing, and brand development support.
+          Backero Private Limited is a research-driven cosmetics manufacturing
+          partner for brands that need private label formulation, contract
+          production, and fast quote delivery.
         </p>
         <p className="text-sm sm:text-base md:text-lg text-muted-foreground/80 mb-8 sm:mb-10 max-w-2xl mx-auto font-light px-2">
-          We help brands create high-quality products with scientific precision
-          and market-ready execution.
+          Request a custom quote today and get expert product development support
+          for skincare, haircare, and personal care launches.
         </p>
 
         <div className="flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-16 px-2">
@@ -61,8 +61,8 @@ const HeroSection = () => {
             className="group w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base"
             asChild
           >
-            <a href="#services" aria-label="Explore our manufacturing and R&D capabilities">
-              Explore Our Capabilities
+            <a href="#contact" aria-label="Request a quote for cosmetics manufacturing">
+              Request a Quote
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </a>
           </Button>
@@ -72,7 +72,7 @@ const HeroSection = () => {
             className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base"
             asChild
           >
-            <a href="#contact" aria-label="Get in touch to partner with us">Partner With Us</a>
+            <a href="#contact" aria-label="Talk to our sales team">Talk To Sales</a>
           </Button>
         </div>
 
@@ -92,7 +92,7 @@ const HeroSection = () => {
             {
               icon: Sparkles,
               label: "2 Brands Owned",
-              sub: "Treyfa & Kymarie",
+              sub: "Treyfa & Kumarie",
             },
           ].map((item, i) => (
             <li

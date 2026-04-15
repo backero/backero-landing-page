@@ -103,7 +103,7 @@ const Footer = () => {
                   href="#brands"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Kymarie
+                  Kumarie
                 </a>
               </li>
             </ul>

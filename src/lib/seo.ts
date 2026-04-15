@@ -13,6 +13,20 @@ export interface SEOConfig {
   author?: string;
 }
 
+export const leadHeadMapping = {
+  title: "Backero Private Limited | Request Cosmetics Manufacturing Quote",
+  description:
+    "Contact Backero for private label cosmetics manufacturing, R&D support, and product development partnerships. Get a fast quote from our team today.",
+  keywords:
+    "cosmetics manufacturing quote, private label cosmetics, contract manufacturing inquiries, cosmetic R&D partner, skincare manufacturing leads",
+  ogTitle: "Request a Cosmetics Manufacturing Quote | Backero",
+  ogDescription:
+    "Backero helps brands launch skincare and haircare products with scientific formulation, contract manufacturing, and fast quote delivery.",
+  twitterTitle: "Get a Manufacturing Quote | Backero",
+  twitterDescription:
+    "Request a quote for private label cosmetics and R&D support from Backero's expert team.",
+};
+
 /**
  * Generate a complete SEO config object with defaults
  */
@@ -24,7 +38,7 @@ export const generateSEOConfig = (config: Partial<SEOConfig>): SEOConfig => {
     description:
       "Backero is India's leading research-driven cosmetics manufacturing company specializing in contract manufacturing, R&D, and brand development.",
     keywords:
-      "cosmetic manufacturer, R&D, contract manufacturing, skincare, haircare, Treyfa, Kymarie",
+      "cosmetics manufacturing quote, private label cosmetics, contract manufacturing, skincare, haircare, Treyfa, Kumarie",
     image: `${baseUrl}/og-image.jpg`,
     url: baseUrl,
     type: "website",
@@ -151,9 +165,12 @@ export const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Customer Service",
+    telephone: "+91-89034-12061",
     email: "info@backero.in",
     availableLanguage: ["en"],
   },
+  areaServed: ["IN"],
+  contactType: "Customer Service",
 };
 
 /**
@@ -194,6 +211,25 @@ export const generateProductSchema = (product: {
     brand: {
       "@type": "Brand",
       name: product.brand,
+    },
+  };
+};
+
+export const generateRequestQuoteSchema = () => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "RequestQuoteAction",
+    name: "Request a cosmetics manufacturing quote",
+    description:
+      "Request a quote for private label cosmetics, skincare, and haircare manufacturing partnerships.",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://backero.in/#contact",
+      actionPlatform: [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/AndroidPlatform",
+        "http://schema.org/iOSPlatform",
+      ],
     },
   };
 };

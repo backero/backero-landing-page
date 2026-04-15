@@ -120,7 +120,7 @@ Created `src/hooks/use-seo.ts`:
 - Awards and achievements section visible on homepage
 - Years of experience mentioned (founding date: 2018)
 - Industry certifications (recommended to add)
-- Featured brands (Treyfa, Kymarie)
+- Featured brands (Treyfa, Kumarie)
 
 ### Trustworthiness Signals
 - Contact information prominently displayed
@@ -138,7 +138,7 @@ Already optimized with:
 - Sitemap URL included
 
 ### Sitemap.xml ✓
-Already generated and submitted for:
+Already generated and submitted for:    
 - Better crawl efficiency
 - Faster indexing of new pages
 

@@ -28,7 +28,7 @@ const milestones = [
   },
   {
     year: "2024",
-    title: "Diversification with Kymarie",
+    title: "Diversification with Kumarie",
     description:
       "Launched our premium color cosmetics line, reinforcing our commitment to safety without compromising on performance.",
   },
