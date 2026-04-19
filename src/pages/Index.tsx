@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLenis } from "@/hooks/useLenis";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import HighlightsSection from "@/components/HighlightsSection";
@@ -19,6 +20,8 @@ import {
 } from "@/lib/seo";
 
 const Index = () => {
+  useLenis();
+
   useEffect(() => {
     // Add Organization Schema
     addJSONLDScript(organizationSchema, "org-schema");

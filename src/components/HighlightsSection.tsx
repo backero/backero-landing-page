@@ -1,70 +1,104 @@
-import { FlaskConical, Factory, Package, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { FlaskConical, Factory, Package, CheckCircle, ArrowRight } from "lucide-react";
+import {
+  AnimatedSection,
+  StaggerContainer,
+  staggerItemVariants,
+} from "@/components/ui/AnimatedSection";
 
 const highlights = [
   {
     icon: FlaskConical,
     number: "R&D",
     label: "Formulation Lab",
-    description: "Ingredient Research & Testing",
+    description: "Ingredient research & in-house testing",
   },
   {
     icon: Factory,
     number: "Custom",
     label: "Manufacturing",
-    description: "Scalable Production Lines",
+    description: "Scalable production lines, your volume",
   },
   {
     icon: Package,
     number: "2",
     label: "Owned Brands",
-    description: "Treyfa & Kumarie",
+    description: "Treyfa & Kumarie — built from scratch",
   },
   {
     icon: CheckCircle,
     number: "100%",
     label: "Quality Focus",
-    description: "Safety & Compliance First",
+    description: "Safety & compliance at every stage",
   },
 ];
 
 const HighlightsSection = () => {
   return (
-    <section id="highlights" className="py-12 sm:py-16 md:py-24 bg-muted">
+    <section id="highlights" className="py-20 md:py-28 bg-muted/40 border-y border-border/50">
       <div className="container-custom">
-        <div className="text-center mb-8 sm:mb-12 px-4">
-          <span className="text-xs font-semibold text-primary uppercase tracking-widest mb-2 sm:mb-3 block">
-            Why Partner With Us
-          </span>
-          <h2 className="text-primary mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl">
-            Our Core Capabilities
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            From formulation to finished product — Backero delivers end-to-end
-            personal care manufacturing solutions.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-20 items-center">
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-          {highlights.map((highlight, index) => (
-            <div
-              key={index}
-              className="text-center slide-up group p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-primary/10 text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                <highlight.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
-              </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">
-                {highlight.number}
-              </div>
-              <div className="text-sm sm:text-base md:text-lg font-semibold text-foreground mb-0.5 sm:mb-1">
-                {highlight.label}
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
-                {highlight.description}
-              </div>
+          {/* Left: Text block */}
+          <AnimatedSection direction="left">
+            <div className="eyebrow">
+              <span className="eyebrow-text">Why Partner With Us</span>
             </div>
-          ))}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.12] mb-5">
+              Our Core<br />Capabilities
+            </h2>
+            <p className="text-[1.0625rem] text-muted-foreground leading-relaxed mb-8 max-w-sm">
+              From formulation to finished product — Backero delivers
+              end-to-end personal care manufacturing solutions built for brands
+              that want to grow.
+            </p>
+            <motion.a
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-full text-sm shadow-card-md"
+              whileHover={{ scale: 1.04, y: -2, boxShadow: "0 12px 24px -4px rgba(0,0,0,0.18)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            >
+              Get Started
+              <ArrowRight className="w-4 h-4" />
+            </motion.a>
+          </AnimatedSection>
+
+          {/* Right: 2×2 feature card grid */}
+          <StaggerContainer className="grid grid-cols-2 gap-3 sm:gap-4">
+            {highlights.map((highlight, index) => (
+              <motion.div
+                key={index}
+                variants={staggerItemVariants}
+                className="p-5 sm:p-6 rounded-2xl bg-card border border-border cursor-default"
+                whileHover={{
+                  scale: 1.03,
+                  y: -5,
+                  boxShadow: "0 16px 32px -8px rgba(0,0,0,0.1)",
+                  borderColor: "hsl(215 50% 20% / 0.25)",
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              >
+                <motion.div
+                  className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4"
+                  whileHover={{ backgroundColor: "hsl(215 50% 20%)", scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <highlight.icon className="h-5 w-5 text-primary group-hover:text-white transition-colors" />
+                </motion.div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-primary mb-1 tracking-tight">
+                  {highlight.number}
+                </div>
+                <div className="text-sm font-semibold text-foreground mb-1">
+                  {highlight.label}
+                </div>
+                <div className="text-xs text-muted-foreground leading-relaxed hidden sm:block">
+                  {highlight.description}
+                </div>
+              </motion.div>
+            ))}
+          </StaggerContainer>
+
         </div>
       </div>
     </section>

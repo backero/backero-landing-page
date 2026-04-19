@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FlaskConical,
   Factory,
@@ -5,7 +6,11 @@ import {
   Lightbulb,
   ShieldCheck,
 } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import {
+  AnimatedSection,
+  StaggerContainer,
+  staggerItemVariants,
+} from "@/components/ui/AnimatedSection";
 
 const values = [
   {
@@ -42,38 +47,52 @@ const values = [
 
 const ValuesSection = () => {
   return (
-    <section id="values" className="section-padding bg-muted">
+    <section id="values" className="py-20 md:py-28 bg-muted/40 border-t border-border/50">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <span className="inline-block text-xs font-semibold text-primary uppercase tracking-widest mb-3">
-            Our Strengths
-          </span>
-          <h2 className="text-primary mb-4">Why Brands Choose Backero</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            We don't just manufacture products — we build partnerships that help
-            brands grow through technical excellence and reliable delivery.
+        {/* Left-aligned header */}
+        <AnimatedSection className="section-header">
+          <div className="eyebrow">
+            <span className="eyebrow-text">Our Strengths</span>
+          </div>
+          <h2>Why Brands<br />Choose Backero</h2>
+          <p>
+            We don't just manufacture products — we build partnerships that
+            help brands grow through technical excellence and reliable delivery.
           </p>
-        </div>
+        </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {values.map((value, index) => (
-            <Card
+            <motion.div
               key={index}
-              className="p-6 text-center hover:shadow-lg hover:border-primary/20 transition-all duration-300 slide-up group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              variants={staggerItemVariants}
+              className={`p-6 rounded-2xl bg-card border border-border shadow-card group cursor-default ${
+                index === 4 ? "sm:col-span-2 lg:col-span-1" : ""
+              }`}
+              whileHover={{
+                scale: 1.02,
+                y: -6,
+                boxShadow: "0 16px 32px -8px rgba(0,0,0,0.1)",
+                borderColor: "hsl(215 50% 20% / 0.2)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                <value.icon className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+              <motion.div
+                className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4"
+                whileHover={{ backgroundColor: "hsl(215 50% 20%)", scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <value.icon className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-colors duration-200" />
+              </motion.div>
+              <h3 className="text-base font-semibold text-foreground mb-2 tracking-tight">
                 {value.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {value.description}
               </p>
-            </Card>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -1,5 +1,9 @@
-import storyBg from "@/assets/story-bg.jpg";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  AnimatedSection,
+  StaggerContainer,
+  staggerItemVariants,
+} from "@/components/ui/AnimatedSection";
 
 const milestones = [
   {
@@ -44,76 +48,62 @@ const StorySection = () => {
   return (
     <section
       id="story"
-      className="section-padding relative overflow-hidden bg-background"
+      className="py-20 md:py-28 bg-background"
     >
-      {/* Background with overlay */}
-      <div className="absolute inset-0 z-0">
-        <img src={storyBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/95 backdrop-blur-sm" />
-      </div>
-
-      <div className="container-custom relative z-10">
-        <div className="text-center mb-20 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 inline-block tracking-tight">
-            Our Journey
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-            Key milestones in our mission to deliver safe, sustainable, and
-            innovative personalized care products.
-          </p>
-        </div>
-
-        {/* Grid Timeline Container */}
-        <div className="relative">
-          {/* Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {milestones.map((milestone, index) => (
-              <div
-                key={index}
-                className="
-                  flex flex-col items-center text-center
-                  group relative
-                "
-              >
-                {/* Year Bubble */}
-                <div
-                  className="
-                  relative z-10 mb-8 
-                  px-6 py-2 flex items-center justify-center 
-                  rounded-full bg-card border border-primary/10 shadow-sm
-                  group-hover:scale-105 group-hover:border-primary/30 group-hover:shadow-md
-                  transition-all duration-300
-                "
-                >
-                  <span className="font-bold text-primary text-xl tracking-wide">
-                    {milestone.year}
-                  </span>
-                  {/* Small connector dot below year */}
-                  <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-px h-6 bg-primary/20 group-hover:bg-primary/40 transition-colors" />
-                </div>
-
-                {/* Card */}
-                <div
-                  className="
-                  bg-card p-8 rounded-xl border border-border/40 shadow-sm w-full h-full
-                  hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 ease-out
-                  flex flex-col items-center relative
-                "
-                >
-                  {/* Top connector visual */}
-                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-background border-2 border-primary z-20" />
-
-                  <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-light">
-                    {milestone.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+      <div className="container-custom">
+        {/* Left-aligned header */}
+        <AnimatedSection className="section-header">
+          <div className="eyebrow">
+            <span className="eyebrow-text">Our Journey</span>
           </div>
-        </div>
+          <h2>5 Years of Building<br />Something Real</h2>
+          <p>
+            Key milestones in our mission to deliver safe, sustainable, and
+            innovative personalized care products that stand the test of time.
+          </p>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {milestones.map((milestone, index) => (
+            <motion.div
+              key={index}
+              variants={staggerItemVariants}
+              className="flex flex-col items-start text-left group relative"
+            >
+              {/* Year Bubble */}
+              <motion.div
+                className="mb-5 px-4 py-1.5 flex items-center justify-center rounded-full bg-card border border-primary/15 shadow-card"
+                whileHover={{
+                  scale: 1.06,
+                  borderColor: "hsl(215 50% 20% / 0.4)",
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              >
+                <span className="font-bold text-primary text-sm tracking-wide tabular-nums">
+                  {milestone.year}
+                </span>
+              </motion.div>
+
+              {/* Card */}
+              <motion.div
+                className="bg-card p-6 rounded-2xl border border-border shadow-card w-full h-full flex flex-col"
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 20px 40px -8px rgba(0,0,0,0.1)",
+                  borderColor: "hsl(215 50% 20% / 0.2)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              >
+                <h3 className="text-base font-bold text-foreground mb-2 tracking-tight group-hover:text-primary transition-colors duration-300">
+                  {milestone.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {milestone.description}
+                </p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </StaggerContainer>
       </div>
     </section>
   );
