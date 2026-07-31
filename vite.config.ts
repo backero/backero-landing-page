@@ -14,4 +14,19 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("framer-motion") || id.includes("gsap")) return "vendor-motion";
+            if (id.includes("react-router")) return "vendor-router";
+            if (id.includes("@radix-ui")) return "vendor-radix";
+            if (id.includes("react-dom") || id.includes("/react/")) return "vendor-react";
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
 }));
