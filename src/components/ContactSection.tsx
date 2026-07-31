@@ -42,20 +42,16 @@ const ContactSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const encode = (data: Record<string, string>) =>
-    Object.keys(data)
-      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await fetch("/", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...formData }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
+      if (!response.ok) throw new Error("Request failed");
       toast.success("Message sent! We'll get back to you within 24 hours.");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       (window as typeof window & { dataLayer?: unknown[] }).dataLayer?.push({
