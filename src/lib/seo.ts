@@ -9,7 +9,7 @@ export interface SEOConfig {
   keywords: string;
   image?: string;
   url?: string;
-  type?: string;
+  type?: string; 
   author?: string;
 }
 

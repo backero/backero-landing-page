@@ -1,10 +1,15 @@
+import { motion } from "framer-motion";
 import {
   FlaskConical,
   Factory,
-  Layers,
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
+import {
+  AnimatedSection,
+  StaggerContainer,
+  staggerItemVariants,
+} from "@/components/ui/AnimatedSection";
 
 const capabilities = [
   {
@@ -19,10 +24,10 @@ const capabilities = [
       "Prototype creation",
       "Customization based on brand requirements",
     ],
-    gradient:
-      "from-blue-50 to-indigo-50 dark:from-primary/10 dark:to-primary/5",
+    gradient: "from-blue-50 to-indigo-50 dark:from-primary/10 dark:to-primary/5",
     iconColor: "text-blue-600 dark:text-primary",
     iconBg: "bg-blue-100 dark:bg-primary/20",
+    accentColor: "hsl(213 94% 68% / 0.15)",
   },
   {
     icon: Factory,
@@ -36,10 +41,10 @@ const capabilities = [
       "Soaps & Cleansers",
       "Herbal & Specialty Formulations",
     ],
-    gradient:
-      "from-green-50 to-emerald-50 dark:from-accent/10 dark:to-accent/5",
+    gradient: "from-green-50 to-emerald-50 dark:from-accent/10 dark:to-accent/5",
     iconColor: "text-green-600 dark:text-accent",
     iconBg: "bg-green-100 dark:bg-accent/20",
+    accentColor: "hsl(142 76% 36% / 0.12)",
   },
 ];
 
@@ -73,116 +78,158 @@ const process = [
 
 const ServicesSection = () => {
   return (
-    <section 
-      id="services" 
-      className="section-padding bg-background"
+    <section
+      id="services"
+      className="py-20 md:py-28 bg-background"
       aria-label="Our Manufacturing and R&D Services"
     >
       <div className="container-custom">
-        {/* Header */}
-        <div className="text-center mb-16 slide-up">
-          <span className="inline-block text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-3">
-            Manufacturing & R&D
-          </span>
-          <h2 className="text-primary mb-6 font-bold text-3xl md:text-4xl">End-to-End Product Development</h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
+        {/* Left-aligned header */}
+        <AnimatedSection className="section-header">
+          <div className="eyebrow">
+            <span className="eyebrow-text">Manufacturing & R&D</span>
+          </div>
+          <h2>End-to-End Product<br />Development</h2>
+          <p>
             From concept to commercialization — we provide the scientific
             expertise and manufacturing infrastructure that B2B brands need to
             succeed.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Capabilities Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <StaggerContainer className="grid md:grid-cols-2 gap-6 mb-20">
           {capabilities.map((cap, index) => (
-            <article
+            <motion.article
               key={index}
-              className={`rounded-2xl p-8 bg-gradient-to-br ${cap.gradient} border border-border/50 hover:shadow-xl transition-all duration-300 slide-up`}
-              style={{ animationDelay: `${index * 0.15}s` }}
+              variants={staggerItemVariants}
+              className={`rounded-2xl p-8 bg-gradient-to-br ${cap.gradient} border border-border/50 shadow-card`}
+              whileHover={{
+                y: -8,
+                boxShadow: `0 24px 48px -12px ${cap.accentColor}, 0 8px 16px -4px rgba(0,0,0,0.06)`,
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
-              <div
-                className={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${cap.iconBg} ${cap.iconColor} mb-6`}
+              <motion.div
+                className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${cap.iconBg} ${cap.iconColor} mb-5`}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 aria-hidden="true"
               >
-                <cap.icon className="w-7 h-7" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3">
+                <cap.icon className="w-6 h-6" />
+              </motion.div>
+              <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">
                 {cap.title}
               </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
                 {cap.description}
               </p>
-              <ul className="space-y-2.5 list-none p-0">
+              <ul className="space-y-2 list-none p-0">
                 {cap.points.map((point, i) => (
-                  <li
+                  <motion.li
                     key={i}
                     className="flex items-center gap-3 text-sm text-foreground/80"
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 + 0.3 }}
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
                     {point}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </StaggerContainer>
 
-        {/* Product Development Process */}
+        {/* Process */}
         <div className="mb-20">
-          <div className="text-center mb-12">
-            <span className="inline-block text-xs font-semibold text-primary uppercase tracking-widest mb-3">
-              How It Works
-            </span>
-            <h3 className="text-3xl font-bold text-foreground">
+          <AnimatedSection className="mb-12">
+            <div className="eyebrow">
+              <span className="eyebrow-text">How It Works</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
               Product Development Process
             </h3>
-          </div>
+          </AnimatedSection>
+
           <div className="relative">
-            {/* Connector line */}
-            <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" aria-hidden="true" />
-            <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 list-none p-0">
+            <div
+              className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10"
+              aria-hidden="true"
+            />
+            <StaggerContainer
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+              staggerChildren={0.08}
+            >
               {process.map((step, index) => (
-                <li
+                <motion.li
                   key={index}
-                  className="flex flex-col items-center text-center group"
+                  variants={staggerItemVariants}
+                  className="flex flex-col items-center text-center group list-none"
                 >
-                  <div className="relative z-10 w-16 h-16 rounded-full bg-card border-2 border-primary/20 flex items-center justify-center mb-4 group-hover:border-primary group-hover:bg-primary/5 transition-all duration-300 shadow-sm">
-                    <span className="text-lg font-bold text-primary" aria-label={`Step ${step.step}`}>
+                  <motion.div
+                    className="relative z-10 w-16 h-16 rounded-full bg-card border-2 border-border flex items-center justify-center mb-4 shadow-card"
+                    whileHover={{
+                      scale: 1.12,
+                      borderColor: "hsl(215 50% 20%)",
+                      boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <span className="text-sm font-bold text-primary tabular-nums" aria-label={`Step ${step.step}`}>
                       {step.step}
                     </span>
-                  </div>
-                  <h4 className="font-semibold text-foreground mb-2 text-sm">
+                  </motion.div>
+                  <h4 className="font-semibold text-foreground mb-1.5 text-sm tracking-tight">
                     {step.title}
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     {step.desc}
                   </p>
-                </li>
+                </motion.li>
               ))}
-            </ol>
+            </StaggerContainer>
           </div>
         </div>
 
-        {/* Quality Commitment Banner */}
-        <aside className="rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-8 md:p-12 text-center text-primary-foreground">
-          <ShieldCheck className="w-12 h-12 mx-auto mb-4 opacity-80" aria-hidden="true" />
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Our Quality Commitment
-          </h3>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8 leading-relaxed text-lg">
-            We follow strict quality standards throughout the production process
-            to ensure safety, consistency, and performance — because your brand
-            reputation depends on it.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-3.5 rounded-full hover:bg-primary-foreground/90 transition-colors duration-200"
-            aria-label="Discuss your project with our team"
+        {/* Quality banner */}
+        <AnimatedSection direction="none" delay={0.1}>
+          <motion.aside
+            className="rounded-2xl bg-gradient-to-r from-primary to-primary/85 p-8 md:p-12 text-center text-primary-foreground overflow-hidden relative"
+            whileHover={{ boxShadow: "0 24px 48px -12px hsl(215 50% 20% / 0.35)" }}
+            transition={{ duration: 0.3 }}
           >
-            Discuss Your Project
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </a>
-        </aside>
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, white 0%, transparent 50%)" }} aria-hidden="true" />
+            <motion.div
+              className="relative z-10"
+              animate={{ rotate: [0, 4, -4, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ShieldCheck className="w-10 h-10 mx-auto mb-4 opacity-90" aria-hidden="true" />
+            </motion.div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-3 relative z-10 tracking-tight">
+              Our Quality Commitment
+            </h3>
+            <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 leading-relaxed relative z-10">
+              Strict quality standards throughout the production process to ensure
+              safety, consistency, and performance — because your brand reputation
+              depends on it.
+            </p>
+            <motion.a
+              href="#contact"
+              className="relative z-10 inline-flex items-center gap-2 bg-white text-primary font-semibold px-7 py-3 rounded-full text-sm shadow-card-md"
+              whileHover={{ scale: 1.05, y: -2, boxShadow: "0 12px 24px rgba(0,0,0,0.2)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              aria-label="Discuss your project with our team"
+            >
+              Discuss Your Project
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </motion.a>
+          </motion.aside>
+        </AnimatedSection>
       </div>
     </section>
   );

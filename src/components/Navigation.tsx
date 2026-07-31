@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import backeroLogo from "@/assets/backero-logo.png";
@@ -8,9 +9,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,13 +30,14 @@ const Navigation = () => {
     >
       <nav className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
-        <a href="#" className="flex items-center">
-          <img
-            src={backeroLogo}
-            alt="Backero"
-            className="h-10 md:h-12 w-auto"
-          />
-        </a>
+        <motion.a
+          href="#"
+          className="flex items-center"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <img src={backeroLogo} alt="Backero" className="h-10 md:h-12 w-auto" />
+        </motion.a>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-8">
@@ -45,7 +45,7 @@ const Navigation = () => {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors link-underline py-1"
               >
                 {link.label}
               </a>
@@ -55,47 +55,90 @@ const Navigation = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button variant="default" size="sm" asChild>
-            <a href="#contact">Partner With Us</a>
-          </Button>
+          <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.95 }}>
+            <Button variant="default" size="sm" asChild>
+              <a href="#contact">Partner With Us</a>
+            </Button>
+          </motion.div>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
+        <motion.button
+          className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          whileTap={{ scale: 0.9 }}
+          aria-label="Toggle mobile menu"
         >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6 text-foreground" />
-          ) : (
-            <Menu className="h-6 w-6 text-foreground" />
-          )}
-        </button>
+          <AnimatePresence mode="wait" initial={false}>
+            {isMobileMenuOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.15 }}
+              >
+                <X className="h-6 w-6 text-foreground" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.15 }}
+              >
+                <Menu className="h-6 w-6 text-foreground" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </nav>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-card border-t border-border">
-          <ul className="container-custom py-6 space-y-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="block text-base font-medium text-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="md:hidden bg-card/98 backdrop-blur-md border-t border-border overflow-hidden"
+          >
+            <ul className="container-custom py-6 space-y-1">
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.2 }}
                 >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <li className="pt-4">
-              <Button variant="default" className="w-full" asChild>
-                <a href="#contact">Partner With Us</a>
-              </Button>
-            </li>
-          </ul>
-        </div>
-      )}
+                  <a
+                    href={link.href}
+                    className="block py-3 px-2 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </motion.li>
+              ))}
+              <motion.li
+                className="pt-3"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.05, duration: 0.2 }}
+              >
+                <Button variant="default" className="w-full" asChild>
+                  <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    Partner With Us
+                  </a>
+                </Button>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

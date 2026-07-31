@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -7,6 +8,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { generateFAQSchema, addJSONLDScript } from "@/lib/seo";
+import {
+  AnimatedSection,
+  StaggerContainer,
+  staggerItemVariants,
+} from "@/components/ui/AnimatedSection";
 
 const faqs = [
   {
@@ -53,7 +59,6 @@ const faqs = [
 
 const FAQSection = () => {
   useEffect(() => {
-    // Add FAQ Schema for AEO
     const faqSchema = generateFAQSchema(faqs);
     addJSONLDScript(faqSchema, "faq-schema");
   }, []);
@@ -61,60 +66,62 @@ const FAQSection = () => {
   return (
     <section
       id="faq"
-      className="section-padding bg-gradient-to-b from-muted/30 to-background"
+      className="py-20 md:py-28 bg-gradient-to-b from-muted/30 to-background"
       aria-label="Frequently asked questions about our services"
     >
       <div className="container-custom">
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16 slide-up px-4">
-          <span className="inline-block text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-3 md:mb-4">
-            Common Queries
-          </span>
-          <h2 className="text-primary text-2xl sm:text-3xl md:text-4xl mb-6 md:mb-8 font-bold">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Find answers to common questions about our manufacturing services, product development process, and partnership opportunities.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16 items-start">
 
-        {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto slide-up">
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="border border-border rounded-lg px-6 data-[state=open]:bg-muted/50 transition-colors"
-              >
-                <AccordionTrigger className="hover:no-underline py-5 text-left hover:text-primary transition-colors">
-                  <span className="text-base md:text-lg font-semibold text-foreground flex items-center gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 text-primary text-sm font-bold">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {faq.question}
-                  </span>
-                  <ChevronDown className="h-5 w-5 shrink-0 transition-transform duration-200 text-primary" />
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+          {/* Left: Sticky intro */}
+          <AnimatedSection direction="left" className="lg:sticky lg:top-28">
+            <div className="eyebrow">
+              <span className="eyebrow-text">Common Queries</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight leading-[1.15] mb-5">
+              Frequently<br />Asked<br />Questions
+            </h2>
+            <p className="text-[1.0625rem] text-muted-foreground leading-relaxed mb-8">
+              Everything you need to know about our manufacturing services,
+              formulation process, and partnership opportunities.
+            </p>
+            <motion.a
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-full text-sm shadow-card-md"
+              whileHover={{ scale: 1.04, y: -2, boxShadow: "0 12px 24px -4px rgba(0,0,0,0.18)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            >
+              Contact Our Team
+              <ArrowRight className="w-4 h-4" />
+            </motion.a>
+          </AnimatedSection>
 
-        {/* CTA */}
-        <div className="mt-12 md:mt-16 text-center">
-          <p className="text-muted-foreground mb-4">
-            Still have questions? We're here to help!
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground rounded-full font-semibold hover:opacity-90 transition-opacity"
-          >
-            Contact Our Team
-          </a>
+          {/* Right: Accordion */}
+          <StaggerContainer className="w-full">
+            <Accordion type="single" collapsible className="w-full space-y-3">
+              {faqs.map((faq, index) => (
+                <motion.div key={index} variants={staggerItemVariants}>
+                  <AccordionItem
+                    value={`item-${index}`}
+                    className="border border-border rounded-2xl px-6 data-[state=open]:bg-primary/[0.03] data-[state=open]:border-primary/20 transition-all duration-200 shadow-card"
+                  >
+                    <AccordionTrigger className="hover:no-underline py-5 text-left hover:text-primary transition-colors [&>svg]:text-primary [&>svg]:flex-shrink-0">
+                      <span className="text-sm md:text-base font-semibold text-foreground flex items-center gap-3 pr-3">
+                        <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold tabular-nums">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        {faq.question}
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5 pl-9">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </StaggerContainer>
+
         </div>
       </div>
     </section>
