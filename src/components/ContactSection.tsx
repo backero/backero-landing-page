@@ -42,14 +42,30 @@ const ContactSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const encode = (data: Record<string, string>) =>
+    Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...formData }),
+      });
       toast.success("Message sent! We'll get back to you within 24 hours.");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      (window as typeof window & { dataLayer?: unknown[] }).dataLayer?.push({
+        event: "generate_lead",
+      });
+    } catch (error) {
+      toast.error("Something went wrong. Please try WhatsApp or email us directly.");
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -200,7 +216,19 @@ const ContactSection = () => {
               <h3 className="text-xl font-bold text-foreground mb-6">
                 Send Us a Message
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form
+                onSubmit={handleSubmit}
+                name="contact"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                className="space-y-5"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p hidden>
+                  <label>
+                    Don't fill this out: <input name="bot-field" />
+                  </label>
+                </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {/* Floating label: Name */}
                   <div className="floating-field">
