@@ -48,7 +48,7 @@ const faqs = [
   {
     question: "Does Backero manufacture for export outside India?",
     answer:
-      "Yes, we have experience manufacturing products for export. We ensure all our formulations and manufacturing practices comply with international regulatory requirements for various markets including Europe, North America, and other regions.",
+      "Yes, we export internationally. We supply international markets and can provide COA, MSDS, ingredient declarations, and support for customs clearance for your destination market.",
   },
   {
     question: "What is the process for becoming a brand partner with Backero?",

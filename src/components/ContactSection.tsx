@@ -11,6 +11,7 @@ import {
   Lightbulb,
   Truck,
   Send,
+  Globe,
 } from "lucide-react";
 import {
   AnimatedSection,
@@ -193,6 +194,33 @@ const ContactSection = () => {
                   </motion.div>
                 ))}
               </StaggerContainer>
+            </div>
+
+            {/* Export & Global Trade */}
+            <div className="bg-card rounded-2xl border border-border p-6 card-depth">
+              <h4 className="text-sm font-bold text-foreground uppercase tracking-wide mb-4 flex items-center gap-2">
+                <Globe className="w-4 h-4 text-primary" />
+                Export & Global Trade
+              </h4>
+              <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+                We build private label and white label products for B2B
+                brands across India and internationally, with support for
+                COA, MSDS, ingredient declarations, and customs clearance.
+              </p>
+              <div className="space-y-1.5 text-xs text-muted-foreground">
+                <p>
+                  <span className="font-semibold text-foreground">Payment:</span>{" "}
+                  Bank Transfer · UPI · Advance · LC (exports)
+                </p>
+                <p>
+                  <span className="font-semibold text-foreground">Currencies:</span>{" "}
+                  INR · USD · AED
+                </p>
+                <p>
+                  <span className="font-semibold text-foreground">Incoterms:</span>{" "}
+                  EXW · FOB
+                </p>
+              </div>
             </div>
 
             {/* CIN Info */}

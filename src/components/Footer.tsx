@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { HashLink } from "@/components/ui/HashLink";
 import backeroLogo from "@/assets/backero-logo.png";
 
 const Footer = () => {
@@ -14,6 +15,7 @@ const Footer = () => {
       { label: "Manufacturing & R&D", href: "#services" },
       { label: "Brand Development", href: "#services" },
       { label: "Private Label", href: "#services" },
+      { label: "Products", href: "/products" },
     ],
   };
 
@@ -72,12 +74,12 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <HashLink
                       href={link.href}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </HashLink>
                   </li>
                 ))}
               </ul>
@@ -99,23 +101,23 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
+                <HashLink
                   href="#brands"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Kumarie
-                </a>
+                </HashLink>
               </li>
             </ul>
 
             <div className="mt-6">
-              <a
+              <HashLink
                 href="#contact"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
               >
                 Partner With Us
                 <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              </HashLink>
             </div>
           </div>
         </div>

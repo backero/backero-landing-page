@@ -215,6 +215,27 @@ export const generateProductSchema = (product: {
   };
 };
 
+/**
+ * Generate CollectionPage Schema for a category listing (e.g. the Products page)
+ */
+export const generateCollectionPageSchema = (
+  categories: Array<{ name: string; description: string; url: string }>
+) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Backero Product Categories",
+    description:
+      "Cosmetic and personal care product categories manufactured by Backero Private Limited.",
+    hasPart: categories.map((category) => ({
+      "@type": "Thing",
+      name: category.name,
+      description: category.description,
+      url: category.url,
+    })),
+  };
+};
+
 export const generateRequestQuoteSchema = () => {
   return {
     "@context": "https://schema.org",

@@ -5,6 +5,8 @@ import HeroSection from "@/components/HeroSection";
 import HighlightsSection from "@/components/HighlightsSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import ManufacturingSection from "@/components/ManufacturingSection";
+import CertificationsSection from "@/components/CertificationsSection";
 import BrandsSection from "@/components/BrandsSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import StorySection from "@/components/StorySection";
@@ -89,6 +91,18 @@ const Index = () => {
     addJSONLDScript(generateRequestQuoteSchema(), "request-quote-schema");
   }, []);
 
+  // Arriving here via a "/#section" link from another page (e.g. /products) lands
+  // on "/" with a hash already in the URL — jump to it once Lenis has initialized,
+  // since Lenis's own scroll setup can otherwise reset the viewport to the top.
+  useEffect(() => {
+    if (!window.location.hash) return;
+    const id = window.location.hash.slice(1);
+    const timer = setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -97,6 +111,8 @@ const Index = () => {
         <HighlightsSection />
         <AboutSection />
         <ServicesSection />
+        <ManufacturingSection />
+        <CertificationsSection />
         <BrandsSection />
         <AchievementsSection />
         <StorySection />

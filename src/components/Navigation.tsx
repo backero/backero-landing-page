@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { HashLink } from "@/components/ui/HashLink";
 import { Menu, X } from "lucide-react";
 import backeroLogo from "@/assets/backero-logo.png";
 
@@ -17,6 +18,7 @@ const Navigation = () => {
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
+    { label: "Products", href: "/products" },
     { label: "Brands", href: "#brands" },
     { label: "Our Journey", href: "#story" },
     { label: "Contact", href: "#contact" },
@@ -30,25 +32,22 @@ const Navigation = () => {
     >
       <nav className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
-        <motion.a
-          href="#"
-          className="flex items-center"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-        >
-          <img src={backeroLogo} alt="Backero" className="h-10 md:h-12 w-auto" />
-        </motion.a>
+        <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <HashLink href="/" className="flex items-center">
+            <img src={backeroLogo} alt="Backero" className="h-10 md:h-12 w-auto" />
+          </HashLink>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
+              <HashLink
                 href={link.href}
                 className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-foreground hover:text-accent transition-colors link-underline py-1"
               >
                 {link.label}
-              </a>
+              </HashLink>
             </li>
           ))}
         </ul>
@@ -57,7 +56,7 @@ const Navigation = () => {
         <div className="hidden md:block">
           <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.95 }}>
             <Button variant="default" size="sm" asChild>
-              <a href="#contact">Partner With Us</a>
+              <HashLink href="#contact">Partner With Us</HashLink>
             </Button>
           </motion.div>
         </div>
@@ -114,13 +113,13 @@ const Navigation = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.2 }}
                 >
-                  <a
+                  <HashLink
                     href={link.href}
                     className="block py-3 px-2 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </HashLink>
                 </motion.li>
               ))}
               <motion.li
@@ -130,9 +129,9 @@ const Navigation = () => {
                 transition={{ delay: navLinks.length * 0.05, duration: 0.2 }}
               >
                 <Button variant="default" className="w-full" asChild>
-                  <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <HashLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                     Partner With Us
-                  </a>
+                  </HashLink>
                 </Button>
               </motion.li>
             </ul>
