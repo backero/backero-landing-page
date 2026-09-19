@@ -3,29 +3,23 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown, FlaskConical, Factory, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import heroBanner from "@/assets/hero-banner.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const stats = [
-  { icon: FlaskConical, label: "In-House R&D", sub: "Formulation Experts" },
-  { icon: Factory, label: "Own Manufacturing", sub: "Scalable Capacity" },
-  { icon: Sparkles, label: "2 Brands Owned", sub: "Treyfa & Kumarie" },
-];
-
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(4px)" },
+  hidden: { opacity: 0, y: 16, filter: "blur(2px)" },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
@@ -80,7 +74,7 @@ const HeroSection = () => {
           decoding="async"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/60"
+          className="absolute inset-0 bg-gradient-to-br from-background/75 via-background/55 to-background/30"
           aria-hidden="true"
         />
         <div
@@ -134,25 +128,16 @@ const HeroSection = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-base sm:text-lg md:text-xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto font-light leading-relaxed px-2"
+          className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 max-w-2xl mx-auto font-light leading-relaxed px-2"
         >
-          Backero Private Limited is a research-driven cosmetics manufacturing
-          partner for brands that need private label formulation, contract
-          production, and fast quote delivery.
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-sm sm:text-base md:text-lg text-muted-foreground/80 mb-8 sm:mb-10 max-w-2xl mx-auto font-light px-2"
-        >
-          Request a custom quote today and get expert product development support
-          for skincare, haircare, and personal care launches.
+          Private label formulation, contract manufacturing, and fast quotes
+          for skincare, haircare, and personal care brands.
         </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-16 px-2"
+          className="flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 px-2"
         >
           <motion.div
             whileHover={{ scale: 1.03, y: -2 }}
@@ -192,33 +177,6 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Quick stats */}
-        <motion.ul
-          variants={itemVariants}
-          className="grid grid-cols-3 gap-2 sm:gap-4 max-w-xs sm:max-w-sm md:max-w-2xl mx-auto list-none p-0"
-        >
-          {stats.map((item, i) => (
-            <motion.li
-              key={i}
-              className="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-card/40 backdrop-blur-sm border border-border/40 cursor-default"
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "rgba(255,255,255,0.55)",
-              }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            >
-              <item.icon
-                className="w-4 h-4 sm:w-5 sm:h-5 text-primary mb-1 sm:mb-1.5"
-                aria-hidden="true"
-              />
-              <div className="text-[10px] sm:text-xs font-semibold text-foreground leading-tight text-center">
-                {item.label}
-              </div>
-              <div className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">
-                {item.sub}
-              </div>
-            </motion.li>
-          ))}
-        </motion.ul>
       </motion.div>
 
       {/* Scroll Indicator */}
@@ -227,7 +185,7 @@ const HeroSection = () => {
         className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.5 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
         whileHover={{ scale: 1.2 }}
         aria-label="Scroll down to explore highlights"
       >

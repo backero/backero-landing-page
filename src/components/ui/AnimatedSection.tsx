@@ -17,15 +17,19 @@ export function AnimatedSection({
   delay = 0,
   direction = "up",
   once = true,
-  amount = 0.1,
+  amount = 0,
 }: AnimatedSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, amount });
+  // margin extends the trigger zone below the viewport so sections start
+  // animating in before they're actually scrolled into view — otherwise,
+  // at normal scroll speed, content is visibly washed-out/half-faded for
+  // most of the time it's on screen.
+  const isInView = useInView(ref, { once, amount, margin: "0px 0px 200px 0px" });
 
   const dirMap = {
-    up: { y: 40, x: 0 },
-    left: { x: -50, y: 0 },
-    right: { x: 50, y: 0 },
+    up: { y: 18, x: 0 },
+    left: { x: -24, y: 0 },
+    right: { x: 24, y: 0 },
     none: { y: 0, x: 0 },
   };
   const { y, x } = dirMap[direction];
@@ -36,7 +40,7 @@ export function AnimatedSection({
       opacity: 1,
       y: 0,
       x: 0,
-      transition: { duration: 0.7, delay, ease },
+      transition: { duration: 0.4, delay, ease },
     },
   };
 
@@ -66,10 +70,10 @@ export function StaggerContainer({
   className,
   delay = 0,
   staggerChildren = 0.1,
-  amount = 0.1,
+  amount = 0,
 }: StaggerContainerProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount });
+  const isInView = useInView(ref, { once: true, amount, margin: "0px 0px 200px 0px" });
 
   return (
     <motion.div
@@ -88,10 +92,10 @@ export function StaggerContainer({
 }
 
 export const staggerItemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease },
+    transition: { duration: 0.35, ease },
   },
 };

@@ -255,17 +255,22 @@ const ContactSection = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {/* Floating label: Phone */}
-                  <div className="floating-field">
+                  {/* Phone — static label to match the Enquiry Type select's
+                      vertical rhythm in this row (floating labels don't
+                      apply cleanly to <select>, so both fields use the
+                      static pattern here instead). */}
+                  <div>
+                    <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1.5">
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder=" "
-                      className="floating-input h-12 w-full rounded-md border border-input bg-background px-3 text-sm"
+                      placeholder="Your phone number"
+                      className="h-12 w-full rounded-md border border-input bg-background px-3 text-sm"
                     />
-                    <label className="floating-label">Phone Number</label>
                   </div>
 
                   {/* Select */}
