@@ -3,6 +3,7 @@
 // handles /api/contact, proxied through by nginx. Kept separate from the
 // main backero-backend app since this is a single, unrelated public-facing
 // form with no auth/DB dependency.
+import 'dotenv/config';
 import express from 'express';
 const app = express();
 
