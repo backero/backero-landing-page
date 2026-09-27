@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FlaskConical, Factory, Award, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -8,17 +8,14 @@ import {
 
 const proofs = [
   {
-    icon: FlaskConical,
     stat: "In-House R&D",
     detail: "Advanced formulation lab — no outsourcing",
   },
   {
-    icon: Factory,
     stat: "Own Manufacturing",
     detail: "Full control from raw material to finished product",
   },
   {
-    icon: Award,
     stat: "2 Live Brands",
     detail: "Treyfa & Kumarie — proof we deliver",
   },
@@ -59,25 +56,23 @@ const CTASection = () => {
             <motion.div
               key={i}
               variants={staggerItemVariants}
-              className="flex flex-row sm:flex-col items-center sm:items-center gap-4 sm:gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-5 py-4 sm:p-6 sm:text-center cursor-default"
+              className="relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-5 py-5 sm:p-6 sm:text-center cursor-default"
               whileHover={{
-                backgroundColor: "rgba(255,255,255,0.18)",
-                scale: 1.02,
+                backgroundColor: "rgba(255,255,255,0.16)",
+                borderColor: "rgba(255,255,255,0.35)",
                 y: -4,
               }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <p.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <p className="text-primary-foreground font-bold text-sm sm:text-base leading-tight">
-                  {p.stat}
-                </p>
-                <p className="text-primary-foreground/65 text-xs sm:text-sm mt-0.5 leading-snug">
-                  {p.detail}
-                </p>
-              </div>
+              <span className="block font-mono text-[0.625rem] uppercase tracking-[0.14em] font-semibold text-primary-foreground/45 mb-2">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="text-primary-foreground font-bold text-sm sm:text-base leading-tight">
+                {p.stat}
+              </p>
+              <p className="text-primary-foreground/65 text-xs sm:text-sm mt-1 leading-snug">
+                {p.detail}
+              </p>
             </motion.div>
           ))}
         </StaggerContainer>

@@ -42,6 +42,12 @@ const milestones = [
     description:
       "Inaugurated state-of-the-art R&D and manufacturing facilities to ensure end-to-end quality control and acceleration of global exports.",
   },
+  {
+    year: "2026",
+    title: "The Biotech Leap",
+    description:
+      "Evolved from formulation to bio-innovation, applying fermentation, enzymatic processes and biomaterial engineering to create actives that are more effective, stable and sustainable.",
+  },
 ];
 
 const StorySection = () => {
@@ -56,54 +62,59 @@ const StorySection = () => {
           <div className="eyebrow">
             <span className="eyebrow-text">Our Journey</span>
           </div>
-          <h2>5 Years of Building<br />Something Real</h2>
+          <h2>6 Years of Building<br />Something Real</h2>
           <p>
             Key milestones in our mission to deliver safe, sustainable, and
             innovative personalized care products that stand the test of time.
           </p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {milestones.map((milestone, index) => (
-            <motion.div
-              key={index}
-              variants={staggerItemVariants}
-              className="flex flex-col items-start text-left group relative"
-            >
-              {/* Year Bubble */}
-              <motion.div
-                className="mb-5 px-4 py-1.5 flex items-center justify-center rounded-full bg-card border border-primary/15 shadow-card"
-                whileHover={{
-                  scale: 1.06,
-                  borderColor: "hsl(215 50% 20% / 0.4)",
-                }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              >
-                <span className="font-bold text-primary text-sm tracking-wide tabular-nums">
-                  {milestone.year}
-                </span>
-              </motion.div>
-
-              {/* Card */}
-              <motion.div
-                className="bg-card p-6 rounded-2xl border border-border shadow-card w-full h-full flex flex-col"
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 20px 40px -8px rgba(0,0,0,0.1)",
-                  borderColor: "hsl(215 50% 20% / 0.2)",
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              >
-                <h3 className="text-base font-bold text-foreground mb-2 tracking-tight group-hover:text-primary transition-colors duration-300">
-                  {milestone.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {milestone.description}
-                </p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </StaggerContainer>
+        {/* Connected vertical timeline -- a continuous rail joins every
+            milestone node, each one rendered as a normal card */}
+        <div className="relative">
+          <div className="absolute left-4 sm:left-5 top-3 bottom-3 w-px bg-border" aria-hidden="true" />
+          <StaggerContainer className="space-y-5">
+            {milestones.map((milestone, index) => {
+              const accent = ["text-primary", "text-accent", "text-coral"][index % 3];
+              const dot = ["bg-primary", "bg-accent", "bg-coral"][index % 3];
+              const gradient = [
+                "from-primary/[0.08] via-primary/[0.02] to-transparent",
+                "from-accent/[0.10] via-accent/[0.02] to-transparent",
+                "from-coral/[0.12] via-coral/[0.02] to-transparent",
+              ][index % 3];
+              const borderHover = [
+                "hsl(var(--primary) / 0.3)",
+                "hsl(var(--accent) / 0.3)",
+                "hsl(var(--coral) / 0.3)",
+              ][index % 3];
+              return (
+                <motion.div key={index} variants={staggerItemVariants} className="relative pl-10 sm:pl-12">
+                  <motion.span
+                    className={`absolute left-4 sm:left-5 top-6 -translate-x-1/2 w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full border-[3px] border-background z-10 ${dot}`}
+                    whileHover={{ scale: 1.3 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    aria-hidden="true"
+                  />
+                  <motion.div
+                    className={`relative overflow-hidden bg-card bg-gradient-to-br ${gradient} border border-border/60 rounded-2xl p-5 sm:p-6`}
+                    whileHover={{ y: -3, borderColor: borderHover }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  >
+                    <span className={`font-mono text-xs uppercase tracking-[0.14em] font-semibold mb-2 block ${accent}`}>
+                      {milestone.year}
+                    </span>
+                    <h3 className="text-lg md:text-xl font-bold text-foreground tracking-tight mb-2">
+                      {milestone.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                      {milestone.description}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </StaggerContainer>
+        </div>
       </div>
     </section>
   );

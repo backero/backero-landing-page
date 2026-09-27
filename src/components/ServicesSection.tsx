@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  FlaskConical,
-  Factory,
-  Cpu,
-  ShieldCheck,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -14,7 +8,6 @@ import {
 
 const capabilities = [
   {
-    icon: FlaskConical,
     title: "Research & Development",
     description:
       "Our R&D division focuses on innovative formulation development using scientifically backed ingredients and modern cosmetic research methodologies.",
@@ -25,13 +18,11 @@ const capabilities = [
       "Prototype creation",
       "Customization based on brand requirements",
     ],
-    gradient: "from-blue-50 to-indigo-50 dark:from-primary/10 dark:to-primary/5",
-    iconColor: "text-blue-600 dark:text-primary",
-    iconBg: "bg-blue-100 dark:bg-primary/20",
-    accentColor: "hsl(213 94% 68% / 0.15)",
+    gradient: "from-primary/[0.08] via-primary/[0.02] to-transparent",
+    labelColor: "text-primary",
+    borderHover: "hsl(var(--primary) / 0.35)",
   },
   {
-    icon: Factory,
     title: "Manufacturing Capabilities",
     description:
       "We provide scalable manufacturing solutions tailored to your brand's volume, timeline, and quality requirements.",
@@ -42,13 +33,11 @@ const capabilities = [
       "Soaps & Cleansers",
       "Herbal & Specialty Formulations",
     ],
-    gradient: "from-green-50 to-emerald-50 dark:from-accent/10 dark:to-accent/5",
-    iconColor: "text-green-600 dark:text-accent",
-    iconBg: "bg-green-100 dark:bg-accent/20",
-    accentColor: "hsl(142 76% 36% / 0.12)",
+    gradient: "from-accent/[0.12] via-accent/[0.03] to-transparent",
+    labelColor: "text-accent",
+    borderHover: "hsl(var(--accent) / 0.35)",
   },
   {
-    icon: Cpu,
     title: "AI Workflow Automation",
     description:
       "Our own operations run on a custom-built workflow automation platform — task automation and WhatsApp alerts — so partner brands get real-time visibility into every order, not just a status email.",
@@ -58,10 +47,9 @@ const capabilities = [
       "Automated attendance & leave tracking",
       "Live production & order dashboards",
     ],
-    gradient: "from-purple-50 to-violet-50 dark:from-purple-500/10 dark:to-violet-500/5",
-    iconColor: "text-purple-600 dark:text-purple-400",
-    iconBg: "bg-purple-100 dark:bg-purple-500/20",
-    accentColor: "hsl(270 60% 55% / 0.15)",
+    gradient: "from-coral/[0.16] via-coral/[0.03] to-transparent",
+    labelColor: "text-coral",
+    borderHover: "hsl(var(--coral) / 0.35)",
   },
 ];
 
@@ -97,10 +85,10 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-20 md:py-28 bg-background"
+      className="relative py-20 md:py-28 bg-background lattice-bg"
       aria-label="Our Manufacturing and R&D Services"
     >
-      <div className="container-custom">
+      <div className="container-custom relative">
         {/* Left-aligned header */}
         <AnimatedSection className="section-header">
           <div className="eyebrow">
@@ -114,34 +102,29 @@ const ServicesSection = () => {
           </p>
         </AnimatedSection>
 
-        {/* Capabilities Grid */}
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        {/* Capabilities -- even 3-col grid, gradient-tinted, no icons */}
+        <StaggerContainer className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 mb-20">
           {capabilities.map((cap, index) => (
             <motion.article
               key={index}
               variants={staggerItemVariants}
-              className={`rounded-2xl p-8 bg-gradient-to-br ${cap.gradient} border border-border/50 shadow-card`}
-              whileHover={{
-                y: -8,
-                boxShadow: `0 24px 48px -12px ${cap.accentColor}, 0 8px 16px -4px rgba(0,0,0,0.06)`,
-              }}
+              className={`relative overflow-hidden flex flex-col rounded-2xl p-8 bg-gradient-to-br ${cap.gradient} border border-border/60`}
+              whileHover={{ y: -6, borderColor: cap.borderHover }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
-              <motion.div
-                className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${cap.iconBg} ${cap.iconColor} mb-5`}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              <span
+                className={`absolute -right-3 -top-8 font-mono text-[7rem] font-bold leading-none select-none pointer-events-none ${cap.labelColor} opacity-[0.07]`}
                 aria-hidden="true"
               >
-                <cap.icon className="w-6 h-6" />
-              </motion.div>
-              <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="relative text-xl font-bold text-foreground mb-3 tracking-tight">
                 {cap.title}
               </h3>
-              <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
+              <p className="relative text-muted-foreground mb-5 leading-relaxed text-sm">
                 {cap.description}
               </p>
-              <ul className="space-y-2 list-none p-0">
+              <ul className="relative space-y-2 list-none p-0">
                 {cap.points.map((point, i) => (
                   <motion.li
                     key={i}
@@ -151,7 +134,7 @@ const ServicesSection = () => {
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 + 0.3 }}
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
+                    <div className={`w-1.5 h-1.5 rounded-full ${cap.labelColor.replace("text-", "bg-")} flex-shrink-0`} aria-hidden="true" />
                     {point}
                   </motion.li>
                 ))}
@@ -219,13 +202,9 @@ const ServicesSection = () => {
             transition={{ duration: 0.3 }}
           >
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, white 0%, transparent 50%)" }} aria-hidden="true" />
-            <motion.div
-              className="relative z-10"
-              animate={{ rotate: [0, 4, -4, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <ShieldCheck className="w-10 h-10 mx-auto mb-4 opacity-90" aria-hidden="true" />
-            </motion.div>
+            <span className="relative z-10 inline-block font-mono text-[0.6875rem] uppercase tracking-[0.14em] font-semibold text-primary-foreground/70 mb-3">
+              Quality Assurance
+            </span>
             <h3 className="text-2xl md:text-3xl font-bold mb-3 relative z-10 tracking-tight">
               Our Quality Commitment
             </h3>

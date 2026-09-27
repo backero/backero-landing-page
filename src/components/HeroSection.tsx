@@ -1,41 +1,43 @@
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import heroBanner from "@/assets/hero-banner.jpg";
+import heroVideo from "@/assets/video/hero-biotech.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 16, filter: "blur(2px)" },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
-const badgeVariants = {
+const badgeVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8, y: -10 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.34, 1.56, 0.64, 1], delay: 0.15 },
+    transition: { duration: 0.6, ease: [0.34, 1.56, 0.64, 1] as const, delay: 0.15 },
   },
 };
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const mm = gsap.matchMedia();
@@ -54,10 +56,18 @@ const HeroSection = () => {
     return () => mm.revert();
   }, []);
 
+  useEffect(() => {
+    // Respect reduced-motion: don't autoplay the video, fall back to the
+    // static poster frame only.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      videoRef.current?.pause();
+    }
+  }, []);
+
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen min-h-dvh flex items-center justify-center overflow-hidden pt-20"
       aria-label="Hero section - Innovative Manufacturing for Next-Gen Personal Care, Powered by Biotechnology"
     >
       {/* Parallax Background */}
@@ -66,20 +76,19 @@ const HeroSection = () => {
         className="absolute inset-0 z-0 will-change-transform"
         style={{ height: "130%", top: "-15%" }}
       >
-        <img
-          src={heroBanner}
-          alt="State-of-the-art personal care manufacturing facility and R&D laboratory"
-          // The source photo's product bottles sit in the left third of the
-          // frame. On narrow (mobile) viewports, object-cover's default 50%
-          // center crop shows almost none of that width, leaving just the
-          // plain background visible. Bias the crop left on small screens
-          // (where the visible slice is narrowest) so the product stays in
-          // frame; revert to a centered crop once there's enough width to
-          // show the full composition.
-          className="w-full h-full object-cover object-[18%_center] md:object-center"
-          loading="eager"
-          decoding="async"
-        />
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover object-[30%_center] sm:object-center"
+          poster={heroBanner}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0 bg-gradient-to-br from-background/75 via-background/55 to-background/30"
           aria-hidden="true"
@@ -118,8 +127,8 @@ const HeroSection = () => {
       >
         {/* Badge */}
         <motion.div variants={badgeVariants} className="flex justify-center mb-6 sm:mb-8">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest">
-            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" aria-hidden="true" />
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-2 rounded-full border border-accent/25 bg-card/85 backdrop-blur-md font-mono text-[9px] sm:text-xs font-medium text-accent uppercase tracking-[0.06em] sm:tracking-[0.14em] whitespace-nowrap max-w-[92vw]">
+            <Sparkles className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 flex-shrink-0" aria-hidden="true" />
             Research · Manufacturing · Innovation
           </span>
         </motion.div>
@@ -127,10 +136,10 @@ const HeroSection = () => {
         {/* Heading */}
         <motion.h1
           variants={itemVariants}
-          className="mb-5 sm:mb-6 text-foreground leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight"
+          className="mb-5 sm:mb-6 text-foreground leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold"
         >
           Innovative Manufacturing for Next-Gen Personal Care, Powered by{" "}
-          <span className="text-primary">Biotechnology</span>
+          <span className="text-accent">Biotechnology</span>
         </motion.h1>
 
         <motion.p

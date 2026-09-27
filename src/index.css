@@ -8,81 +8,92 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Soft, sophisticated neutrals */
-    --background: 0 0% 98%;
-    --foreground: 215 45% 20%;
+    /* "Applied Biotech Editorial" -- warm bio-paper, not flat near-white */
+    --background: 38 22% 97%;
+    --foreground: 222 47% 9%;
 
-    /* Clean card surfaces */
+    /* Clean card surfaces -- crisp white against the warm page background */
     --card: 0 0% 100%;
-    --card-foreground: 215 45% 20%;
+    --card-foreground: 222 47% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 45% 20%;
+    --popover-foreground: 222 47% 9%;
 
-    /* Deep navy blue primary - from Backero logo */
-    --primary: 215 50% 20%;
+    /* Rich saturated navy - from the Backero logo navy, pushed more vivid.
+       Kept clearly distinct from --foreground (near-black ink) on purpose:
+       text-primary is used as an emphasis/highlight color throughout, so it
+       must never converge with body-text foreground. */
+    --primary: 217 60% 22%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 215 40% 90%;
-    --primary-dark: 215 55% 15%;
+    --primary-light: 217 35% 92%;
+    --primary-dark: 217 65% 15%;
 
-    /* Fresh green accent - from Backero logo leaves */
-    --accent: 95 55% 47%;
+    /* Bio-luminescent signal green - raised saturation from the Backero logo leaves,
+       used sparingly and decisively rather than diffused everywhere */
+    --accent: 102 72% 40%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 95 60% 92%;
+    --accent-light: 102 55% 92%;
+
+    /* Warm amber/coral - secondary accent so the palette isn't only navy+green */
+    --coral: 22 85% 58%;
+    --coral-foreground: 222 47% 9%;
 
     /* Subtle secondary */
-    --secondary: 215 20% 96%;
-    --secondary-foreground: 215 45% 20%;
+    --secondary: 38 20% 94%;
+    --secondary-foreground: 222 47% 9%;
 
     /* Muted backgrounds */
-    --muted: 215 15% 96%;
-    --muted-foreground: 215 12% 38%;
+    --muted: 38 15% 93%;
+    --muted-foreground: 220 15% 33%;
 
-    --destructive: 0 70% 55%;
+    --destructive: 6 78% 52%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 15% 88%;
-    --input: 215 15% 90%;
-    --ring: 215 50% 20%;
+    --border: 38 15% 86%;
+    --input: 38 15% 88%;
+    --ring: 217 60% 22%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
     --hero-gradient: linear-gradient(
       135deg,
-      hsl(215 50% 20% / 0.05),
-      hsl(95 55% 47% / 0.05)
+      hsl(217 60% 22% / 0.06),
+      hsl(102 72% 40% / 0.06)
     );
     --section-spacing: 6rem;
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 215 30% 10%;
-    --foreground: 215 15% 95%;
+    --background: 224 45% 7%;
+    --foreground: 38 20% 95%;
 
-    --card: 215 30% 13%;
-    --card-foreground: 215 15% 95%;
+    --card: 224 40% 11%;
+    --card-foreground: 38 20% 95%;
 
-    --popover: 215 30% 13%;
-    --popover-foreground: 215 15% 95%;
+    --popover: 224 40% 11%;
+    --popover-foreground: 38 20% 95%;
 
-    --primary: 215 45% 55%;
-    --primary-foreground: 215 30% 10%;
+    --primary: 215 45% 60%;
+    --primary-foreground: 224 45% 7%;
     --primary-light: 215 40% 25%;
 
-    --accent: 95 55% 55%;
-    --accent-foreground: 215 30% 10%;
+    --accent: 102 65% 55%;
+    --accent-foreground: 224 45% 7%;
 
-    --secondary: 215 25% 18%;
-    --secondary-foreground: 215 15% 95%;
+    --coral: 22 80% 62%;
+    --coral-foreground: 224 45% 7%;
 
-    --muted: 215 20% 18%;
-    --muted-foreground: 215 15% 60%;
+    --secondary: 224 30% 16%;
+    --secondary-foreground: 38 20% 95%;
 
-    --border: 215 20% 22%;
-    --input: 215 20% 22%;
-    --ring: 215 45% 55%;
+    --muted: 224 25% 16%;
+    --muted-foreground: 38 12% 65%;
+
+    --border: 224 25% 20%;
+    --input: 224 25% 20%;
+    --ring: 215 45% 60%;
   }
 }
 
@@ -98,8 +109,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
-    font-feature-settings: "cv01" 1, "cv03" 1, "cv04" 1, "ss01" 1;
+    font-family: "General Sans", system-ui, -apple-system, sans-serif;
     font-size: 16px;
     line-height: 1.7;
   }
@@ -110,26 +120,27 @@ All colors MUST be HSL.
   h4,
   h5,
   h6 {
-    @apply font-bold;
+    font-family: "General Sans", system-ui, -apple-system, sans-serif;
+    font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.025em;
   }
 
   h1 {
     @apply text-5xl md:text-6xl lg:text-7xl;
-    line-height: 1.07;
-    letter-spacing: -0.04em;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
 
   h2 {
     @apply text-4xl md:text-5xl;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
   }
 
   h3 {
     @apply text-2xl md:text-3xl;
-    line-height: 1.25;
+    line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
@@ -166,14 +177,15 @@ All colors MUST be HSL.
   }
 
   .font-serif {
-    font-family: "Inter", sans-serif;
+    font-family: "General Sans", sans-serif;
   }
 
   .font-sans {
-    font-family: "Inter", sans-serif;
+    font-family: "General Sans", sans-serif;
   }
 
-  /* ── Section eyebrow label (line + text) ── */
+  /* ── Section eyebrow label: "lab data readout" signature -- monospace,
+     letter-spaced, with a tick-mark line rather than a plain dash ── */
   .eyebrow {
     display: flex;
     align-items: center;
@@ -186,17 +198,23 @@ All colors MUST be HSL.
     display: block;
     width: 1.5rem;
     height: 2px;
-    background: hsl(var(--primary));
+    background: repeating-linear-gradient(
+      90deg,
+      hsl(var(--accent)) 0px,
+      hsl(var(--accent)) 3px,
+      transparent 3px,
+      transparent 6px
+    );
     flex-shrink: 0;
-    border-radius: 999px;
   }
 
   .eyebrow-text {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: 0.6875rem;
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: hsl(var(--primary));
+    letter-spacing: 0.14em;
+    color: hsl(var(--accent));
   }
 
   /* ── Section header block (left-aligned, premium) ── */
@@ -205,11 +223,12 @@ All colors MUST be HSL.
   }
 
   .section-header h2 {
+    font-family: "General Sans", sans-serif;
     font-size: clamp(1.875rem, 4vw, 2.75rem);
     font-weight: 700;
     color: hsl(var(--foreground));
-    letter-spacing: -0.03em;
-    line-height: 1.15;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
     margin-top: 0.75rem;
     margin-bottom: 1.25rem;
   }
@@ -219,6 +238,56 @@ All colors MUST be HSL.
     color: hsl(var(--muted-foreground));
     line-height: 1.75;
     max-width: 36rem;
+  }
+
+  /* ── Molecular lattice texture: recurring biotech motif, reusable beyond
+     the hero (was previously hero-only inline styling) ── */
+  .lattice-bg {
+    position: relative;
+  }
+
+  .lattice-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  /* ── Lab instrument rail: vertical tick-marked scale, a recurring
+     signature graphic evoking lab-instrument precision ── */
+  .lab-rail {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .lab-rail::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 1px;
+    background: repeating-linear-gradient(
+      180deg,
+      hsl(var(--border)) 0px,
+      hsl(var(--border)) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+  }
+
+  .lab-rail::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0.25rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: hsl(var(--accent));
   }
 
   /* ── Glassmorphism ── */
@@ -248,7 +317,7 @@ All colors MUST be HSL.
     height: 2px;
     bottom: -2px;
     left: 0;
-    background: hsl(var(--primary));
+    background: hsl(var(--accent));
     transform: scaleX(0);
     transform-origin: right center;
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);

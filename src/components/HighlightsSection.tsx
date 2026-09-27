@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FlaskConical, Factory, Package, CheckCircle, ArrowRight } from "lucide-react";
+import { ArrowRight, FlaskConical, Factory, Package, CheckCircle } from "lucide-react";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -12,35 +12,55 @@ const highlights = [
     number: "R&D",
     label: "Formulation Lab",
     description: "Ingredient research & in-house testing",
+    gradient: "from-primary/[0.08] via-primary/[0.02] to-transparent",
+    accentClass: "text-primary",
+    borderHover: "hsl(var(--primary) / 0.3)",
   },
   {
     icon: Factory,
     number: "Custom",
     label: "Manufacturing",
     description: "Scalable production lines, your volume",
+    gradient: "from-accent/[0.10] via-accent/[0.02] to-transparent",
+    accentClass: "text-accent",
+    borderHover: "hsl(var(--accent) / 0.3)",
   },
   {
     icon: Package,
     number: "2",
     label: "Owned Brands",
     description: "Treyfa & Kumarie — built from scratch",
+    gradient: "from-coral/[0.12] via-coral/[0.02] to-transparent",
+    accentClass: "text-coral",
+    borderHover: "hsl(var(--coral) / 0.3)",
   },
   {
     icon: CheckCircle,
     number: "100%",
     label: "Quality Focus",
     description: "Safety & compliance at every stage",
+    gradient: "from-primary/[0.08] via-primary/[0.02] to-transparent",
+    accentClass: "text-primary",
+    borderHover: "hsl(var(--primary) / 0.3)",
   },
 ];
 
 const HighlightsSection = () => {
   return (
-    <section id="highlights" className="py-20 md:py-28 bg-muted/40 border-y border-border/50">
-      <div className="container-custom">
+    <section id="highlights" className="relative py-20 md:py-28 bg-muted/40 border-y border-border/50 lattice-bg overflow-hidden">
+      {/* Oversized ghost numeral -- decorative, breaks the grid-bound feel */}
+      <div
+        className="hidden lg:block absolute -right-8 top-1/2 -translate-y-1/2 font-mono text-[16rem] font-bold text-primary/[0.03] leading-none select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        04
+      </div>
+
+      <div className="container-custom relative">
         <div className="grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-20 items-center">
 
-          {/* Left: Text block */}
-          <AnimatedSection direction="left">
+          {/* Left: Text block, on the lab-rail */}
+          <AnimatedSection direction="left" className="lab-rail">
             <div className="eyebrow">
               <span className="eyebrow-text">Why Partner With Us</span>
             </div>
@@ -55,7 +75,7 @@ const HighlightsSection = () => {
             <motion.a
               href="#contact"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-full text-sm shadow-card-md"
-              whileHover={{ scale: 1.04, y: -2, boxShadow: "0 12px 24px -4px rgba(0,0,0,0.18)" }}
+              whileHover={{ scale: 1.04, y: -2, boxShadow: "0 12px 24px -4px hsl(var(--primary) / 0.3)" }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
@@ -64,35 +84,29 @@ const HighlightsSection = () => {
             </motion.a>
           </AnimatedSection>
 
-          {/* Right: 2×2 feature card grid */}
+          {/* Right: 2×2 feature card grid -- offset rhythm + per-card accent
+              color instead of four identical white tiles */}
           <StaggerContainer className="grid grid-cols-2 gap-3 sm:gap-4">
             {highlights.map((highlight, index) => (
               <motion.div
                 key={index}
                 variants={staggerItemVariants}
-                className="p-5 sm:p-6 rounded-2xl bg-card border border-border cursor-default"
-                whileHover={{
-                  scale: 1.03,
-                  y: -5,
-                  boxShadow: "0 16px 32px -8px rgba(0,0,0,0.1)",
-                  borderColor: "hsl(215 50% 20% / 0.25)",
-                }}
+                className={`relative overflow-hidden flex flex-col p-5 sm:p-6 rounded-2xl bg-gradient-to-br ${highlight.gradient} border border-border/60 cursor-default ${index % 2 === 1 ? "sm:mt-6" : ""}`}
+                whileHover={{ y: -4, borderColor: highlight.borderHover }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
-                <motion.div
-                  className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4"
-                  whileHover={{ backgroundColor: "hsl(215 50% 20%)", scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <highlight.icon className="h-5 w-5 text-primary group-hover:text-white transition-colors" />
-                </motion.div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-primary mb-1 tracking-tight">
+                <highlight.icon
+                  className={`absolute -right-3 -bottom-4 w-20 h-20 sm:w-24 sm:h-24 ${highlight.accentClass} opacity-[0.08] pointer-events-none`}
+                  aria-hidden="true"
+                  strokeWidth={1.5}
+                />
+                <div className={`relative text-2xl sm:text-3xl font-extrabold mb-1 tracking-tight ${highlight.accentClass}`}>
                   {highlight.number}
                 </div>
-                <div className="text-sm font-semibold text-foreground mb-1">
+                <div className="relative text-sm font-semibold text-foreground mb-1">
                   {highlight.label}
                 </div>
-                <div className="text-xs text-muted-foreground leading-relaxed hidden sm:block">
+                <div className="relative text-xs text-muted-foreground leading-relaxed hidden sm:block">
                   {highlight.description}
                 </div>
               </motion.div>

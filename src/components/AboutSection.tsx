@@ -3,8 +3,8 @@ import {
   FlaskConical,
   Factory,
   Package,
-  ShieldCheck,
   Lightbulb,
+  ShieldCheck,
 } from "lucide-react";
 import {
   AnimatedSection,
@@ -13,11 +13,11 @@ import {
 } from "@/components/ui/AnimatedSection";
 
 const expertise = [
-  { icon: FlaskConical, title: "R&D Formulation Development" },
-  { icon: Factory, title: "Custom Product Manufacturing" },
-  { icon: Package, title: "Private Label Solutions" },
-  { icon: Lightbulb, title: "Brand Development Support" },
-  { icon: ShieldCheck, title: "Quality & Compliance Focus" },
+  { icon: FlaskConical, title: "R&D Formulation Development", accent: "text-primary", gradient: "from-primary/[0.08] via-primary/[0.02] to-transparent", borderHover: "hsl(var(--primary) / 0.3)" },
+  { icon: Factory, title: "Custom Product Manufacturing", accent: "text-accent", gradient: "from-accent/[0.10] via-accent/[0.02] to-transparent", borderHover: "hsl(var(--accent) / 0.3)" },
+  { icon: Package, title: "Private Label Solutions", accent: "text-coral", gradient: "from-coral/[0.12] via-coral/[0.02] to-transparent", borderHover: "hsl(var(--coral) / 0.3)" },
+  { icon: Lightbulb, title: "Brand Development Support", accent: "text-primary", gradient: "from-primary/[0.08] via-primary/[0.02] to-transparent", borderHover: "hsl(var(--primary) / 0.3)" },
+  { icon: ShieldCheck, title: "Quality & Compliance Focus", accent: "text-accent", gradient: "from-accent/[0.10] via-accent/[0.02] to-transparent", borderHover: "hsl(var(--accent) / 0.3)" },
 ];
 
 const whyUs = [
@@ -68,19 +68,13 @@ const AboutSection = () => {
         <StaggerContainer className="grid md:grid-cols-2 gap-5 mb-16">
           <motion.article
             variants={staggerItemVariants}
-            className="bg-card border border-border rounded-2xl p-7 shadow-card"
-            whileHover={{
-              y: -5,
-              boxShadow: "0 16px 32px -8px rgba(0,0,0,0.09)",
-              borderColor: "hsl(215 50% 20% / 0.2)",
-            }}
+            className="relative overflow-hidden bg-gradient-to-br from-primary/[0.06] via-primary/[0.02] to-transparent border border-border/60 rounded-2xl p-7"
+            whileHover={{ y: -5, borderColor: "hsl(var(--primary) / 0.3)" }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4" aria-hidden="true">
-              <Lightbulb className="w-5 h-5 text-primary" />
-            </div>
-            <h3 className="text-lg font-bold text-foreground mb-2 tracking-tight">Our Vision</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <Lightbulb className="absolute -right-4 -bottom-5 w-28 h-28 text-primary opacity-[0.07] pointer-events-none" aria-hidden="true" strokeWidth={1.5} />
+            <h3 className="relative text-lg font-bold text-foreground mb-2 tracking-tight">Our Vision</h3>
+            <p className="relative text-sm text-muted-foreground leading-relaxed">
               To become a trusted global partner in cosmetic innovation and
               manufacturing by delivering scientifically advanced and
               consumer-centric products.
@@ -89,19 +83,13 @@ const AboutSection = () => {
 
           <motion.article
             variants={staggerItemVariants}
-            className="bg-card border border-border rounded-2xl p-7 shadow-card"
-            whileHover={{
-              y: -5,
-              boxShadow: "0 16px 32px -8px rgba(0,0,0,0.09)",
-              borderColor: "hsl(95 55% 47% / 0.2)",
-            }}
+            className="relative overflow-hidden bg-gradient-to-br from-accent/[0.08] via-accent/[0.02] to-transparent border border-border/60 rounded-2xl p-7"
+            whileHover={{ y: -5, borderColor: "hsl(var(--accent) / 0.3)" }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
-            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4" aria-hidden="true">
-              <ShieldCheck className="w-5 h-5 text-accent" />
-            </div>
-            <h3 className="text-lg font-bold text-foreground mb-2 tracking-tight">Our Mission</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <ShieldCheck className="absolute -right-4 -bottom-5 w-28 h-28 text-accent opacity-[0.07] pointer-events-none" aria-hidden="true" strokeWidth={1.5} />
+            <h3 className="relative text-lg font-bold text-foreground mb-2 tracking-tight">Our Mission</h3>
+            <p className="relative text-sm text-muted-foreground leading-relaxed">
               To empower brands with high-quality formulations, reliable
               manufacturing, and innovative product development support that
               drives real market success.
@@ -122,24 +110,11 @@ const AboutSection = () => {
               <motion.li
                 key={index}
                 variants={staggerItemVariants}
-                className="flex flex-col items-center text-center p-5 rounded-xl bg-card border border-border shadow-card group list-none cursor-default"
-                whileHover={{
-                  scale: 1.04,
-                  y: -4,
-                  boxShadow: "0 12px 24px -4px rgba(0,0,0,0.08)",
-                  borderColor: "hsl(215 50% 20% / 0.25)",
-                }}
+                className={`relative overflow-hidden flex flex-col items-start text-left p-5 rounded-xl bg-gradient-to-br ${item.gradient} border border-border/60 list-none cursor-default`}
+                whileHover={{ y: -4, borderColor: item.borderHover }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
-                <motion.div
-                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3"
-                  whileHover={{ backgroundColor: "hsl(215 50% 20%)", scale: 1.1 }}
-                  transition={{ duration: 0.2 }}
-                  aria-hidden="true"
-                >
-                  <item.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
-                </motion.div>
-                <p className="text-xs font-semibold text-foreground leading-tight">{item.title}</p>
+                <p className="relative text-xs font-semibold text-foreground leading-tight">{item.title}</p>
               </motion.li>
             ))}
           </StaggerContainer>
@@ -192,23 +167,19 @@ const AboutSection = () => {
         {/* Stats */}
         <StaggerContainer className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-5 mb-20">
           {[
-            { value: "2020", label: "Founded" },
-            { value: "2", label: "Consumer Brands" },
-            { value: "B2B", label: "& B2C Ready" },
+            { value: "2020", label: "Founded", accent: "text-primary", bar: "bg-primary" },
+            { value: "2", label: "Consumer Brands", accent: "text-accent", bar: "bg-accent" },
+            { value: "B2B", label: "& B2C Ready", accent: "text-coral", bar: "bg-coral" },
           ].map((stat, index) => (
             <motion.div
               key={index}
               variants={staggerItemVariants}
-              className="bg-card border border-border rounded-2xl p-5 sm:p-6 text-center shadow-card cursor-default"
-              whileHover={{
-                scale: 1.04,
-                y: -4,
-                boxShadow: "0 12px 24px -4px rgba(0,0,0,0.08)",
-                borderColor: "hsl(215 50% 20% / 0.2)",
-              }}
+              className="relative overflow-hidden bg-card border border-border rounded-2xl p-5 sm:p-6 text-center cursor-default"
+              whileHover={{ y: -4, borderColor: "hsl(var(--primary) / 0.3)" }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary mb-1 tracking-tight">
+              <span className={`absolute top-0 left-0 right-0 h-[3px] ${stat.bar}`} aria-hidden="true" />
+              <div className={`text-2xl sm:text-3xl md:text-4xl font-extrabold mb-1 tracking-tight ${stat.accent}`}>
                 {stat.value}
               </div>
               <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wide font-medium">

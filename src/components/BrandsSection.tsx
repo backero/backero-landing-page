@@ -21,6 +21,8 @@ const brands = [
     accentBg: "bg-accent/8",
     accentBorder: "border-accent/20",
     buttonColor: "bg-accent hover:bg-accent/90",
+    bar: "bg-accent",
+    borderHover: "hsl(var(--accent) / 0.3)",
     categories: ["Hair Care", "Face Care", "Bath & Body"],
     proof: "500+ reviews · 4.8★ · Cancer-free certified",
   },
@@ -36,6 +38,8 @@ const brands = [
     accentBg: "bg-primary/8",
     accentBorder: "border-primary/20",
     buttonColor: "bg-primary hover:bg-primary/90",
+    bar: "bg-primary",
+    borderHover: "hsl(var(--primary) / 0.3)",
     categories: ["Natural Soaps", "Ayurvedic Formulas", "Cruelty-Free"],
     proof: "Est. 2020 · Cold-process handcrafted · SLS & paraben-free",
   },
@@ -43,7 +47,7 @@ const brands = [
 
 const BrandsSection = () => {
   return (
-    <section id="brands" className="py-14 md:py-20 bg-background">
+    <section id="brands" className="py-14 md:py-20 bg-muted/40 border-y border-border/50">
       <div className="container-custom">
         <AnimatedSection className="section-header">
           <div className="eyebrow">
@@ -64,14 +68,12 @@ const BrandsSection = () => {
             <motion.article
               key={brand.id}
               variants={staggerItemVariants}
-              className="bg-card border border-border rounded-2xl p-6 shadow-card flex flex-col gap-5"
-              whileHover={{
-                y: -5,
-                boxShadow: "0 20px 40px -8px rgba(0,0,0,0.09)",
-                borderColor: "hsl(215 50% 20% / 0.2)",
-              }}
+              className="relative overflow-hidden bg-card border border-border/60 rounded-2xl p-6 flex flex-col gap-5"
+              whileHover={{ y: -5, borderColor: brand.borderHover }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
+              <span className={`absolute top-0 left-0 right-0 h-[3px] ${brand.bar}`} aria-hidden="true" />
+
               {/* Logo + brand name row */}
               <div className="flex items-center gap-4">
                 <div className={`w-14 h-14 rounded-xl ${brand.accentBg} border ${brand.accentBorder} flex items-center justify-center p-2 shrink-0`}>
@@ -123,7 +125,7 @@ const BrandsSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-white font-semibold text-xs shrink-0 ${brand.buttonColor} transition-colors duration-200`}
-                    whileHover={{ scale: 1.04, y: -1, boxShadow: "0 6px 16px rgba(0,0,0,0.14)" }}
+                    whileHover={{ scale: 1.04, y: -1 }}
                     whileTap={{ scale: 0.96 }}
                     transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   >
@@ -137,7 +139,7 @@ const BrandsSection = () => {
 
         {/* CTA */}
         <AnimatedSection delay={0.1}>
-          <div className="rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border border-border p-6 md:p-8 text-center">
+          <div className="rounded-2xl bg-card border border-border p-6 md:p-8 text-center">
             <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
               Want Backero to Build Your Brand?
             </h3>
