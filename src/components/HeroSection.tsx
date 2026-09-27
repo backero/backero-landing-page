@@ -58,7 +58,7 @@ const HeroSection = () => {
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      aria-label="Hero section - Innovative Personal Care Manufacturing and R&D Solutions"
+      aria-label="Hero section - Innovative Manufacturing for Next-Gen Personal Care, Powered by Biotechnology"
     >
       {/* Parallax Background */}
       <div
@@ -129,8 +129,8 @@ const HeroSection = () => {
           variants={itemVariants}
           className="mb-5 sm:mb-6 text-foreground leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight"
         >
-          Innovative Personal Care{" "}
-          <span className="text-primary">Manufacturing & R&D</span> Solutions
+          Innovative Manufacturing for Next-Gen Personal Care, Powered by{" "}
+          <span className="text-primary">Biotechnology</span>
         </motion.h1>
 
         <motion.p
