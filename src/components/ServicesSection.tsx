@@ -51,11 +51,10 @@ const capabilities = [
     icon: Cpu,
     title: "AI Workflow Automation",
     description:
-      "Our own operations run on a custom-built workflow platform — task automation, WhatsApp alerts, and AI-assisted call summaries — so partner brands get real-time visibility into every order, not just a status email.",
+      "Our own operations run on a custom-built workflow automation platform — task automation and WhatsApp alerts — so partner brands get real-time visibility into every order, not just a status email.",
     points: [
       "Automated task & approval workflows",
       "WhatsApp-integrated real-time alerts",
-      "AI call & voice-note transcription for CRM",
       "Automated attendance & leave tracking",
       "Live production & order dashboards",
     ],
