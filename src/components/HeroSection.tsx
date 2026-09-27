@@ -69,7 +69,14 @@ const HeroSection = () => {
         <img
           src={heroBanner}
           alt="State-of-the-art personal care manufacturing facility and R&D laboratory"
-          className="w-full h-full object-cover"
+          // The source photo's product bottles sit in the left third of the
+          // frame. On narrow (mobile) viewports, object-cover's default 50%
+          // center crop shows almost none of that width, leaving just the
+          // plain background visible. Bias the crop left on small screens
+          // (where the visible slice is narrowest) so the product stays in
+          // frame; revert to a centered crop once there's enough width to
+          // show the full composition.
+          className="w-full h-full object-cover object-[18%_center] md:object-center"
           loading="eager"
           decoding="async"
         />
