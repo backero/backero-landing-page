@@ -166,7 +166,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base backdrop-blur-sm bg-background/50 hover:bg-background/80"
+              className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base backdrop-blur-sm bg-background/50 text-foreground hover:bg-background/80 hover:text-foreground"
               asChild
             >
               <a href="#contact" aria-label="Talk to our sales team">

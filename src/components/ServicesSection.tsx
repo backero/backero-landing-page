@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import {
   FlaskConical,
   Factory,
+  Cpu,
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
@@ -45,6 +46,23 @@ const capabilities = [
     iconColor: "text-green-600 dark:text-accent",
     iconBg: "bg-green-100 dark:bg-accent/20",
     accentColor: "hsl(142 76% 36% / 0.12)",
+  },
+  {
+    icon: Cpu,
+    title: "AI Workflow Automation",
+    description:
+      "We layer AI-driven automation into production and operations, giving brands real-time visibility and fewer manual bottlenecks from formulation through to delivery.",
+    points: [
+      "AI-assisted formulation optimization",
+      "Automated production scheduling",
+      "Real-time quality & compliance tracking",
+      "Smart inventory & demand forecasting",
+      "Predictive equipment maintenance",
+    ],
+    gradient: "from-purple-50 to-violet-50 dark:from-purple-500/10 dark:to-violet-500/5",
+    iconColor: "text-purple-600 dark:text-purple-400",
+    iconBg: "bg-purple-100 dark:bg-purple-500/20",
+    accentColor: "hsl(270 60% 55% / 0.15)",
   },
 ];
 
@@ -98,7 +116,7 @@ const ServicesSection = () => {
         </AnimatedSection>
 
         {/* Capabilities Grid */}
-        <StaggerContainer className="grid md:grid-cols-2 gap-6 mb-20">
+        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {capabilities.map((cap, index) => (
             <motion.article
               key={index}
