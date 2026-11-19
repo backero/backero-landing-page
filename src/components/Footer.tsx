@@ -129,9 +129,23 @@ const Footer = () => {
             © {currentYear} Backero Private Limited. All rights reserved.
             <span className="hidden sm:inline"> · CIN: U72900TZ2020PTC034030</span>
           </p>
-          <p className="text-xs text-muted-foreground">
-            Research · Manufacturing · Innovation
-          </p>
+          <div className="flex items-center gap-5">
+            <HashLink
+              href="/privacy-policy"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors"
+            >
+              Privacy Policy
+            </HashLink>
+            <HashLink
+              href="/terms-conditions"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors"
+            >
+              Terms & Conditions
+            </HashLink>
+            <p className="text-xs text-muted-foreground">
+              Research · Manufacturing · Innovation
+            </p>
+          </div>
         </div>
       </div>
     </footer>
