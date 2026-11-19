@@ -15,6 +15,7 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ error: 'Missing required fields' });
   }
   if (!process.env.RESEND_API_KEY) {
+    console.error('[contact] RESEND_API_KEY is not set — enquiry from', email, 'was dropped.');
     return res.status(503).json({ error: 'Email sending is not configured yet.' });
   }
 
@@ -36,10 +37,12 @@ app.post('/api/contact', async (req, res) => {
 
     if (!response.ok) {
       const detail = await response.text();
+      console.error('[contact] Resend rejected the email:', response.status, detail);
       return res.status(502).json({ error: 'Email send failed', detail });
     }
     res.status(200).json({ ok: true });
   } catch (err) {
+    console.error('[contact] Unexpected error sending enquiry email:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
