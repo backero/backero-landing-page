@@ -14,81 +14,55 @@ import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
-import {
-  organizationSchema,
-  addJSONLDScript,
-  generateRequestQuoteSchema,
-} from "@/lib/seo";
+import { updateJSONLDScript } from "@/lib/seo";
+
+// Organization, BreadcrumbList, and RequestQuoteAction schemas are already
+// present statically in index.html (visible to crawlers that don't run JS).
+// LocalBusiness has no static equivalent, so it's exported here and also
+// injected statically at build time by scripts/prerender.mjs; the id-matched
+// updateJSONLDScript() call below just keeps it in sync, not duplicated.
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Backero Private Limited",
+  image: "https://backero.in/logo.png",
+  description:
+    "Research-driven cosmetics manufacturing company specializing in contract manufacturing, R&D, and brand development",
+  url: "https://backero.in",
+  telephone: "+91-89034-12061",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "No.42, Interflex Complex, Near 5K Carcare",
+    addressLocality: "Sulur",
+    addressRegion: "Tamil Nadu",
+    postalCode: "641402",
+    addressCountry: "IN",
+  },
+  areaServed: ["IN"],
+  priceRange: "$$",
+  businessHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
+  potentialAction: {
+    "@type": "RequestQuoteAction",
+    name: "Request a custom manufacturing quote",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://backero.in/#contact",
+    },
+  },
+};
 
 const Index = () => {
   useLenis();
 
   useEffect(() => {
-    // Add Organization Schema
-    addJSONLDScript(organizationSchema, "org-schema");
-
-    // Add BreadcrumbList Schema
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://backero.in",
-        },
-      ],
-    };
-    addJSONLDScript(breadcrumbSchema, "breadcrumb-schema");
-
-    // Add LocalBusiness Schema for better local SEO
-    const localBusinessSchema = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: "Backero Private Limited",
-      image: "https://backero.in/logo.png",
-      description:
-        "Research-driven cosmetics manufacturing company specializing in contract manufacturing, R&D, and brand development",
-      url: "https://backero.in",
-      telephone: "+91-89034-12061",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "No.42, Interflex Complex, Near 5K Carcare",
-        addressLocality: "Sulur",
-        addressRegion: "Tamil Nadu",
-        postalCode: "641402",
-        addressCountry: "IN",
-      },
-      areaServed: ["IN"],
-      priceRange: "$$",
-      businessHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-          ],
-          opens: "09:00",
-          closes: "18:00",
-        },
-      ],
-      potentialAction: {
-        "@type": "RequestQuoteAction",
-        name: "Request a custom manufacturing quote",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: "https://backero.in/#contact",
-        },
-      },
-    };
-    addJSONLDScript(localBusinessSchema, "local-business-schema");
-
-    // Add Request Quote Action Schema for lead generation
-    addJSONLDScript(generateRequestQuoteSchema(), "request-quote-schema");
+    updateJSONLDScript(localBusinessSchema, "local-business-schema");
   }, []);
 
   // Arriving here via a "/#section" link from another page (e.g. /products) lands

@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { generateFAQSchema, addJSONLDScript } from "@/lib/seo";
+import { generateFAQSchema, updateJSONLDScript } from "@/lib/seo";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -57,10 +57,11 @@ const faqs = [
   },
 ];
 
+export const faqSchema = generateFAQSchema(faqs);
+
 const FAQSection = () => {
   useEffect(() => {
-    const faqSchema = generateFAQSchema(faqs);
-    addJSONLDScript(faqSchema, "faq-schema");
+    updateJSONLDScript(faqSchema, "faq-schema");
   }, []);
 
   return (

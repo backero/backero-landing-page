@@ -16,7 +16,7 @@ import {
   generateCollectionPageSchema,
 } from "@/lib/seo";
 
-const seoConfig = generateSEOConfig({
+export const seoConfig = generateSEOConfig({
   title: "Product Categories | Backero Private Limited",
   description:
     "Explore Backero's cosmetic manufacturing range — hair care, soaps, skin care, lip care, and colour cosmetics. Private label available from 50 units, developed in-house and GMP-manufactured.",
@@ -25,7 +25,7 @@ const seoConfig = generateSEOConfig({
   url: "https://backero.in/products",
 });
 
-const collectionSchema = generateCollectionPageSchema(
+export const collectionSchema = generateCollectionPageSchema(
   productCategories.map((category) => ({
     name: category.name,
     description: category.description,
